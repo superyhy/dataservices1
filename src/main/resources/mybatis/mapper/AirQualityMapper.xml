@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhy.dataservices.dao.AirQualityDAO">
+    <select id="getAirQualityList" resultType="com.yhy.dataservices.entity.AirQuality">
+        select * from
+        air_quality
+        <where>
+            <if test="cityName!=null and cityName!=''">
+                and city_name like CONCAT('%',#{cityName},'%' )
+            </if>
+        </where>
+        order by
+        create_time
+        desc
+    </select>
+
+    <delete id="deleteAirQuality">
+        delete from air_quality where id=#{id}
+    </delete>
+</mapper>
