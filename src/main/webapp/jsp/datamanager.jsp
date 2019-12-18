@@ -43,7 +43,7 @@
               </form>
               <hr>
               <div class="layui-btn-group">
-                  <button type="button" class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="/gotoCreatePage" dw-title="新增数据" dw-width="70%" dw-height="70%">
+                  <button type="button" class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="/gotoCreatePage" dw-title="新增数据" dw-width="90%" dw-height="90%">
                       <i class="layui-icon">&#xe654;</i>新增
                   </button>
                   <button type="button" class="layui-btn layui-btn-xs layui-btn-danger dw-batch-delete" dw-url="./delete.json">
@@ -91,5 +91,6 @@
 <script type="text/javascript" src="../icheck/icheck.js"></script>
 <script type="text/javascript" src="../js/IndexJs/dw.js"></script>
 <script type="text/javascript" src="../js/datamanager.js"></script>
+<script type="text/javascript" src="../js/IndexJs/data_form_submit.js"></script>
 </body>
 </html>

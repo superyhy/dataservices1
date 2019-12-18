@@ -19,4 +19,11 @@
     <delete id="deleteAirQuality">
         delete from air_quality where id=#{id}
     </delete>
+
+    <insert id="addAirQuality">
+        insert into
+        air_quality(city_name, pm25, pm10, so2, no2, aqi)
+        values
+        (#{cityName},#{pm25},#{pm10},#{so2},#{no2},#{aqi})
+    </insert>
 </mapper>

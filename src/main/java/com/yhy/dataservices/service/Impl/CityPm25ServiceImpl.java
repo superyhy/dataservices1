@@ -30,6 +30,7 @@ public class CityPm25ServiceImpl implements CityPm25Service {
         try{
             resultList=cityPmDAO.getCityPm25List();
         } catch (Exception e) {
+            log.error("{} 查询城市每月平均PM2.5失败 {}",getClass(),e.getMessage());
             e.printStackTrace();
         }
         Map<String,Object> map=new HashMap<>();

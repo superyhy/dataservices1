@@ -31,7 +31,7 @@ function showTable(pageInfo) {
             +'<td>'+airQualityList[i].so2+'</td>'
             +'<td>'+airQualityList[i].no2+'</td>'
             +'<td>'
-            +'<button type="button" class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="/gotoCreatePage" dw-title="编辑用户"><i class="layui-icon">&#xe642;</i>编辑</button>'
+            +'<button onclick="window.location.href="/gotoCreatePage"" type="button" class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="/gotoCreatePage" dw-title="编辑用户"><i class="layui-icon">&#xe642;</i>编辑</button>'
             +'<button onclick="deleteButton('+airQualityList[i].id+')"  class="layui-btn layui-btn-xs layui-btn-danger " ><i class="layui-icon">&#xe640;</i>删除</button>'
             +'</td></tr>'
         $("#dataTable").append(tr);
@@ -105,10 +105,10 @@ function deleteButton(id){
                         success:function(data){
                             console.log(data);
                             if (data){
-                                window.location.reload();
                                 var layer=layui.layer;
-                                layer.msg("删除成功");
-                                // 获得frame索引
+                                layer.msg("操作成功",{icon: 1}, function (index) {
+                                    CloseWin();
+                                })
                             }else {
                                 var layer=layui.layer;
                                 layer.msg("删除失败");
@@ -128,4 +128,11 @@ function deleteButton(id){
                 });
 
 
+}
+
+//关闭子页面，返回父页面
+function CloseWin(){
+    parent.location.reload(); // 父页面刷新
+    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+    parent.layer.close(index); //再执行关闭
 }

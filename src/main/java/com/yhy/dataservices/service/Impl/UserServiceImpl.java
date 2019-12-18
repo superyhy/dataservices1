@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -27,6 +26,7 @@ public class UserServiceImpl implements UserService {
         try {
            user = userDAO.UserLogin(userName);
         } catch (Exception e) {
+            log.error("{} 登录时，查询用户信息出现异常 {}",getClass(),e.getMessage());
             e.printStackTrace();
         }
         if(user!=null&&passWord.equals(user.getPassword())){

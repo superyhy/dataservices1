@@ -22,4 +22,11 @@ public interface AirQualityDAO {
      */
     Boolean deleteAirQuality(Integer id);
 
+    /**
+     * 新增一条空气质量数据
+     * @param airQuality
+     * @return
+     */
+    Boolean addAirQuality(AirQuality airQuality);
+
 }

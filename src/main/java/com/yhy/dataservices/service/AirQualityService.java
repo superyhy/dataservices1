@@ -9,7 +9,7 @@ import java.util.Map;
 public interface AirQualityService {
 
     /**
-     * 分页查询
+     * 分页查询空气质量数据
      * @param pageSize
      * @param pageIndex
      * @param cityName
@@ -18,10 +18,17 @@ public interface AirQualityService {
     PageInfo<AirQuality> queryAirQuality(Integer pageSize, Integer pageIndex, String cityName);
 
     /**
-     * 删除一条数据
+     * 删除一条空气质量数据
      * @param id
      * @return
      */
     Boolean deleteAirQuality(Integer id);
+
+    /**
+     * 新增一条空气质量数据
+     * @param airQuality
+     * @return
+     */
+    Boolean addAirQuality(AirQuality airQuality);
 
 }

@@ -30,6 +30,7 @@ public class AirQualityServiceImpl implements AirQualityService {
 
         List<AirQuality> resultList=new ArrayList<>();
 
+        //定义初始化的pageSize，pageNum
         int pageNum1 = 1;
         if(pageNum!=null){ //如果不为空的话改变当前页号
             pageNum1 = pageNum;
@@ -43,6 +44,7 @@ public class AirQualityServiceImpl implements AirQualityService {
         try{
             resultList=airQualityDAO.getAirQualityList(cityName);
         } catch (Exception e) {
+            log.error("{} 分页查询出现异常 {}",getClass(),e.getMessage());
             e.printStackTrace();
         }
 
@@ -57,8 +59,22 @@ public class AirQualityServiceImpl implements AirQualityService {
          try{
              flag=airQualityDAO.deleteAirQuality(id);
          } catch (Exception e) {
+             log.error("{} 删除数据出现异常 {}",getClass(),e.getMessage());
              e.printStackTrace();
          }
          return flag;
     }
+
+    @Override
+    public Boolean addAirQuality(AirQuality airQuality) {
+        boolean flage=true;
+        try{
+            flage=airQualityDAO.addAirQuality(airQuality);
+        } catch (Exception e) {
+            log.error("{} 新增空气质量数据，出现异常 ",getClass(),e);
+            e.printStackTrace();
+        }
+        return flage;
+    }
+
 }

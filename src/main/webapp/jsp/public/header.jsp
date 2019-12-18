@@ -10,8 +10,8 @@
     <div class="layui-logo">数据分析平台</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
-        <li class="layui-nav-item"><a href="/gotoAdminPage">用户列表</a></li>
-        <li class="layui-nav-item"><a href="member.jsp">会员列表</a></li>
+        <li class="layui-nav-item"><a href="/gotoIndexPage">湖南省数据</a></li>
+        <li class="layui-nav-item"><a href="member.jsp">衡阳市数据</a></li>
     </ul>
     <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
