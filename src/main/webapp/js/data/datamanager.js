@@ -35,6 +35,7 @@ function showTable(pageInfo) {
             +'<td>'
             +'<button onclick="editButton('+airQualityList[i].id+')" type="button" style="background-color: #01AAED" class="layui-btn layui-btn-xs layui-btn-danger"  dw-title="编辑用户"><i class="layui-icon">&#xe642;</i>编辑</button>'
             +'<button onclick="deleteButton('+airQualityList[i].id+')"  class="layui-btn layui-btn-xs layui-btn-danger " ><i class="layui-icon">&#xe640;</i>删除</button>'
+            +'<a href="/downloadAirQuality/'+airQualityList[i].id+'" style="background-color: #009f95" class="layui-btn layui-btn-xs layui-btn-danger " ><i class="layui-icon">&#xe601;</i>下载</a>'
             +'</td></tr>'
         $("#dataTable").append(tr);
     }
@@ -140,7 +141,7 @@ function CloseWin(){
 }
 
 // +----------------------------------------------------------------------
-// | 点击编辑，跳转编辑页面
+// | 点击编辑，跳转编辑页面（在父页面展示子页面，子页面可关闭）
 // +----------------------------------------------------------------------
 
 function editButton(id) {

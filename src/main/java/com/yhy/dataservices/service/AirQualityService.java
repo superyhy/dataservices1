@@ -4,6 +4,8 @@ package com.yhy.dataservices.service;
 import com.github.pagehelper.PageInfo;
 import com.yhy.dataservices.entity.AirQuality;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Map;
 
 public interface AirQualityService {
@@ -44,4 +46,11 @@ public interface AirQualityService {
      * @return
      */
     Boolean updateAirQuality(AirQuality airQuality);
+
+    /**
+     * 下载一条空气质量数据
+     * @param id
+     * @return
+     */
+    Boolean downloadAirQuality(HttpServletResponse response,Integer id);
 }

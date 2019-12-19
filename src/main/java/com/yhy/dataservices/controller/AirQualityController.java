@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @Controller
 public class AirQualityController {
 
@@ -61,9 +64,25 @@ public class AirQualityController {
         return airQualityService.getAirQualityById(Integer.parseInt(id));
     }
 
+    /**
+     * 修改一条空气质量数据
+     * @param airQuality
+     * @return
+     */
     @PostMapping("/updateAirQuality")
     @ResponseBody
     public Boolean updateAirQuality(@RequestBody AirQuality airQuality){
           return airQualityService.updateAirQuality(airQuality);
+    }
+
+    /**
+     * 下载一条空气质量数据
+     * @param id
+     * @return
+     */
+    @GetMapping("/downloadAirQuality/{id}")
+    @ResponseBody
+    public Boolean downloadAirQuality(HttpServletResponse response, @PathVariable Integer id) {
+        return airQualityService.downloadAirQuality(response,id);
     }
 }
