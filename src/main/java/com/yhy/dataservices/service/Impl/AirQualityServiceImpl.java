@@ -77,4 +77,28 @@ public class AirQualityServiceImpl implements AirQualityService {
         return flage;
     }
 
+    @Override
+    public AirQuality getAirQualityById(Integer id) {
+        AirQuality airQuality = null;
+        try{
+            airQuality=airQualityDAO.getAirQualityById(id);
+        } catch (Exception e) {
+            log.error("{} 获取一条空气质量数据,失败 ",getClass(),e);
+            e.printStackTrace();
+        }
+        return airQuality;
+    }
+
+    @Override
+    public Boolean updateAirQuality(AirQuality airQuality) {
+        boolean flag=true;
+        try{
+            flag=airQualityDAO.updateAirQuality(airQuality);
+        } catch (Exception e) {
+            log.error("{} 修改一条空气质量数据，失败 {}",getClass(),e.getMessage());
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
 }

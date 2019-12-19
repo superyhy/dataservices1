@@ -11,7 +11,8 @@
     <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
     <ul class="layui-nav layui-nav-tree"  lay-filter="test">
         <li class="layui-nav-item">
-            <a href="javascript:;">数据分析</a>
+            <a href="javascript:;" ><i class="layui-icon" style="font-size: 14px; color: #D0D0D0">&#xe857;</i>
+                数据分析</a>
             <dl class="layui-nav-child">
                 <dd><a href="/gotoIndexPage">湖南省数据</a></dd>
                 <dd><a href="/gotoIndexPage">衡阳市数据</a></dd>
@@ -19,20 +20,23 @@
         </li>
 
         <li class="layui-nav-item">
-            <a href="javascript:;">数据管理</a>
+            <a href="javascript:;"><i class="layui-icon" style="font-size: 14px; color: #D0D0D0">&#xe63c;</i>
+                数据管理</a>
             <dl class="layui-nav-child">
                 <dd><a href="/gotoDataManagerPage">数据列表</a></dd>
             </dl>
         </li>
 
         <li class="layui-nav-item">
-            <a class="" href="javascript:;">系统设置</a>
+            <a class="" href="javascript:;"><i class="layui-icon" style="font-size: 14px; color: #D0D0D0">&#xe620;</i>
+                系统设置</a>
             <dl class="layui-nav-child">
                 <dd><a href="sysConfig.html">系统变量</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item">
-            <a href="javascript:;">权限管理</a>
+            <a href="javascript:;"><i class="layui-icon" style="font-size: 14px; color: #D0D0D0">&#xe64c;</i>
+                权限管理</a>
             <dl class="layui-nav-child">
                 <dd><a href="rule.html">规则列表</a></dd>
                 <dd><a href="role.html">角色列表</a></dd>
@@ -40,22 +44,10 @@
             </dl>
         </li>
         <li class="layui-nav-item">
-            <a href="javascript:;">会员管理</a>
+            <a href="javascript:;"><i class="layui-icon" style="font-size: 14px; color: #D0D0D0">&#xe613;</i>
+                用户管理</a>
             <dl class="layui-nav-child">
-                <dd><a href="member.html">会员列表</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">开发者工具</a>
-            <dl class="layui-nav-child">
-                <dd><a href="control.html">一键生成</a></dd>
-            </dl>
-        </li>
-        <li class="layui-nav-item">
-            <a href="javascript:;">集成Demo</a>
-            <dl class="layui-nav-child">
-                <dd><a href="upload.html">文件上传</a></dd>
-                <dd><a href="upload.html">Execel导出</a></dd>
+                <dd><a href="member.html">用户列表</a></dd>
             </dl>
         </li>
     </ul>

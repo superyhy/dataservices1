@@ -10,9 +10,11 @@
     <div class="layui-row">
         <div class="layui-col-lg12">
             <fieldset class="layui-elem-field">
-                <legend>数据管理 - 新增数据</legend>
+                <legend>数据管理 - 编辑数据</legend>
                 <div class="layui-field-box">
-                    <form class="layui-form" id="add-form" action="">
+                    <form class="layui-form" id="edit-form"  lay-filter="show-data" action="">
+                        <!--传入隐藏的ID--->
+                        <input id="id" type="hidden" name="id">
                         <div class="layui-form-item" style="width: 500px" >
                             <label class="layui-form-label">城市名称</label>
                             <div class="layui-input-block">
@@ -64,7 +66,7 @@
 
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                                <button class="layui-btn" lay-submit lay-filter="addForm">立即提交</button>
+                                <button class="layui-btn" lay-submit lay-filter="edit-form">立即提交</button>
                                 <button type="reset" class="layui-btn layui-btn-primary" id="closeBtn">重置</button>
                             </div>
                         </div>
@@ -77,6 +79,6 @@
 </div>
 <script type="text/javascript" src="../jquery/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="../layui/layui.js"></script>
-<script type="text/javascript" src="../js/data/data_form_submit.js"></script>
+<script type="text/javascript" src="../js/data/data_edit.js"></script>
 </body>
 </html>

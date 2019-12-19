@@ -13,7 +13,13 @@ public class AirQualityController {
     @Autowired
     AirQualityService airQualityService;
 
-    //分页查询空气质量数据
+    /**
+     * 分页查询空气质量数据
+     * @param pageSize
+     * @param pageNum
+     * @param cityName
+     * @return
+     */
     @GetMapping("/queryAirQuality")
     @ResponseBody
     public PageInfo<AirQuality> queryAirQuality(@RequestParam("pageSize") Integer pageSize,
@@ -22,7 +28,11 @@ public class AirQualityController {
         return  airQualityService.queryAirQuality(pageSize,pageNum,cityName);
     }
 
-    //删除一条空气质量数据
+    /**
+     * 删除一条空气质量数据
+     * @param id
+     * @return
+     */
     @GetMapping("/deleteAirQuality/{id}")
     @ResponseBody
     public Boolean deleteAirQuality(@PathVariable("id") Integer id){
@@ -38,5 +48,22 @@ public class AirQualityController {
     @ResponseBody
     public Boolean addAirQuality(@RequestBody AirQuality airQuality){
         return airQualityService.addAirQuality(airQuality);
+    }
+
+    /**
+     * 根据ID获取一条空气质量数据
+     * @param id
+     * @return
+     */
+    @GetMapping("/getAirQualityById/{id}")
+    @ResponseBody
+    public AirQuality getAirQualityById(@PathVariable String id){
+        return airQualityService.getAirQualityById(Integer.parseInt(id));
+    }
+
+    @PostMapping("/updateAirQuality")
+    @ResponseBody
+    public Boolean updateAirQuality(@RequestBody AirQuality airQuality){
+          return airQualityService.updateAirQuality(airQuality);
     }
 }

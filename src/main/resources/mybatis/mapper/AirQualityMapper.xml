@@ -26,4 +26,37 @@
         values
         (#{cityName},#{pm25},#{pm10},#{so2},#{no2},#{aqi})
     </insert>
+
+    <select id="getAirQualityById" resultType="com.yhy.dataservices.entity.AirQuality">
+        select * from
+        air_quality
+        where
+        id=#{id}
+    </select>
+
+    <update id="updateAirQuality" parameterType="com.yhy.dataservices.entity.AirQuality">
+        update
+        air_quality
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="cityName!=null and cityName!=''">
+                city_name=#{cityName},
+            </if>
+            <if test="pm25!=null and pm25!=''">
+                pm25=#{pm25},
+            </if>
+            <if test="pm10!=null and pm10!=''">
+                pm10=#{pm10},
+            </if>
+            <if test="so2!=null and so2!=''">
+                so2=#{so2},
+            </if>
+            <if test="no2!=null and no2!=''">
+                no2=#{no2},
+            </if>
+            <if test="aqi!=null and aqi!=''">
+                aqi=#{aqi},
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
 </mapper>

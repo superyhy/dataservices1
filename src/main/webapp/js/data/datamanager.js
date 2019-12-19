@@ -1,5 +1,7 @@
 
-
+// +----------------------------------------------------------------------
+// |分页查询操作
+// +----------------------------------------------------------------------
 function queryAirQualityList(){
     $.ajax({
         url:"/queryAirQuality",
@@ -31,7 +33,7 @@ function showTable(pageInfo) {
             +'<td>'+airQualityList[i].so2+'</td>'
             +'<td>'+airQualityList[i].no2+'</td>'
             +'<td>'
-            +'<button onclick="window.location.href="/gotoCreatePage"" type="button" class="layui-btn layui-btn-xs layui-btn-normal dw-dailog" dw-url="/gotoCreatePage" dw-title="编辑用户"><i class="layui-icon">&#xe642;</i>编辑</button>'
+            +'<button onclick="editButton('+airQualityList[i].id+')" type="button" style="background-color: #01AAED" class="layui-btn layui-btn-xs layui-btn-danger"  dw-title="编辑用户"><i class="layui-icon">&#xe642;</i>编辑</button>'
             +'<button onclick="deleteButton('+airQualityList[i].id+')"  class="layui-btn layui-btn-xs layui-btn-danger " ><i class="layui-icon">&#xe640;</i>删除</button>'
             +'</td></tr>'
         $("#dataTable").append(tr);
@@ -88,7 +90,7 @@ function queryBtn() {
 
 
 // +----------------------------------------------------------------------
-// | 删除
+// | 删除操作
 // +----------------------------------------------------------------------
 function deleteButton(id){
                 layer.confirm('您确定要删除吗？',{
@@ -135,4 +137,40 @@ function CloseWin(){
     parent.location.reload(); // 父页面刷新
     var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
     parent.layer.close(index); //再执行关闭
+}
+
+// +----------------------------------------------------------------------
+// | 点击编辑，跳转编辑页面
+// +----------------------------------------------------------------------
+
+function editButton(id) {
+    // var tr_s = $(obj).parent().parent();//获取到tr元素
+    // var data_id = tr_s.find("td:eq(0)").children(":radio").val();//定位到第一个radio的元素获取隐藏的主键
+    course_tab_show('编辑数据','./gotoEditPage?data_id='+id);//打开修改的基本信息层
+}
+
+
+function course_tab_show(title,url,w,h){
+    if (title == null || title == '') {
+        title=false;
+    };
+    if (url == null || url == '') {
+        url="404.html";
+    };
+    if (w == null || w == '') {
+        w=($(window).width()*0.90);
+    };
+    if (h == null || h == '') {
+        h=($(window).height()-50);
+    };
+    layer.open({
+        type: 2,
+        area: [w+'px', h +'px'],
+        fix: false, //不固定
+        maxmin: true,
+        shadeClose: true,
+        shade:0.4,
+        title: title,
+        content: url
+    });
 }

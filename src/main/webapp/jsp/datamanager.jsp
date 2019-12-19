@@ -14,7 +14,7 @@
       <%@ include file="public/header.jsp"%>
   </div>
   
-  <div class="layui-side layui-bg-black">
+  <div class="layui-side layui-bg-black" id="main-layout">
       <!--导航栏-->
       <%@ include file="public/navigationbar.jsp"%>
   </div>
@@ -90,7 +90,7 @@
 <script type="text/javascript" src="../layui/layui.js"></script>
 <script type="text/javascript" src="../icheck/icheck.js"></script>
 <script type="text/javascript" src="../js/IndexJs/dw.js"></script>
-<script type="text/javascript" src="../js/datamanager.js"></script>
-<script type="text/javascript" src="../js/IndexJs/data_form_submit.js"></script>
+<script type="text/javascript" src="../js/data/datamanager.js"></script>
+<script type="text/javascript" src="../js/data/data_form_submit.js"></script>
 </body>
 </html>

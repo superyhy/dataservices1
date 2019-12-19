@@ -29,4 +29,19 @@ public interface AirQualityDAO {
      */
     Boolean addAirQuality(AirQuality airQuality);
 
+    /**
+     * 根据ID获取空气质量数据
+     * @param id
+     * @return
+     */
+    AirQuality getAirQualityById(Integer id);
+
+
+    /**
+     * 更新一条空气质量数据
+     * @param airQuality
+     * @return
+     */
+    Boolean  updateAirQuality(AirQuality airQuality);
+
 }

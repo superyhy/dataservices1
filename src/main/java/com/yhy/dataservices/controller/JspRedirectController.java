@@ -50,5 +50,13 @@ public class JspRedirectController {
         return "create";
     }
 
+    /**
+     * 前往新增编辑页面
+     * @return
+     */
+    @GetMapping("/gotoEditPage")
+    public String gotoEditPage(){
+        return "data_edit";
+    }
 
 }
