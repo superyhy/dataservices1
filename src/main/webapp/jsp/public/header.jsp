@@ -11,12 +11,13 @@
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left" lay-filter="leftNav">
         <li class="layui-nav-item"><a href="/gotoIndexPage">湖南省数据</a></li>
-        <li class="layui-nav-item"><a href="member.jsp">衡阳市数据</a></li>
+        <li class="layui-nav-item"><a href="/gotoHengYang">衡阳市数据</a></li>
+        <li class="layui-nav-item"><a href="/gotoDataManagerPage">数据管理中心</a></li>
     </ul>
     <ul class="layui-nav layui-layout-right" lay-filter="rightNav">
         <li class="layui-nav-item">
             <a href="javascript:;">
-                <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                <img src="../images/index/touxiang.jpg" class="layui-nav-img">
                 <span style="color: #F7F7F7"> ${loginUser}</span>
             </a>
             <dl class="layui-nav-child">
@@ -26,5 +27,6 @@
         </li>
         <li class="layui-nav-item"><a href="/logout">退出</a></li>
     </ul>
+
 </body>
 </html>

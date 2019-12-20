@@ -20,7 +20,7 @@ public class JspRedirectController {
      */
     @GetMapping("/gotoScreenPage")
     public String gotoScreenPage(){
-        return "screen";
+        return "index";
     }
 
     /**
@@ -57,6 +57,15 @@ public class JspRedirectController {
     @GetMapping("/gotoEditPage")
     public String gotoEditPage(){
         return "data_edit";
+    }
+
+    /**
+     *
+     * @return
+     */
+    @GetMapping("/gotoHengYang")
+    public String gotoHengYang(){
+        return "hengyang_index";
     }
 
 }

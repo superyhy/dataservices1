@@ -12,9 +12,9 @@
 </head>
 <body>
 <div class="login_box">
-      <div class="login_l_img"><img src="images/login-img.png" /></div>
+      <div class="login_l_img"><img src="../images/login/login-img.png" /></div>
       <div class="login">
-          <div class="login_logo"><a href="#"><img src="images/login_logo.png" /></a></div>
+          <div class="login_logo"><a href="#"><img src="../images/login/login_logo.png" /></a></div>
           <div class="login_name">
                <p>数据分析平台</p>
           </div>

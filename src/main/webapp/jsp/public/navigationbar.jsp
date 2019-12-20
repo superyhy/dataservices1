@@ -9,13 +9,13 @@
 <body>
 <div class="layui-side-scroll">
     <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-    <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+    <ul class="layui-nav layui-nav-tree"  lay-filter="leftNav">
         <li class="layui-nav-item">
             <a href="javascript:;" ><i class="layui-icon" style="font-size: 14px; color: #D0D0D0">&#xe857;</i>
                 数据分析</a>
             <dl class="layui-nav-child">
                 <dd><a href="/gotoIndexPage">湖南省数据</a></dd>
-                <dd><a href="/gotoIndexPage">衡阳市数据</a></dd>
+                <dd><a href="/gotoHengYang">衡阳市数据</a></dd>
             </dl>
         </li>
 
@@ -53,4 +53,5 @@
     </ul>
   </div>
 </body>
+
 </html>
