@@ -1,6 +1,7 @@
 package com.yhy.dataservices.service.Impl;
 
 import com.yhy.dataservices.dao.UserDAO;
+import com.yhy.dataservices.dto.UserDTO;
 import com.yhy.dataservices.entity.User;
 import com.yhy.dataservices.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -22,18 +23,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean userLogin( HttpSession session,String userName,String passWord) {
-        User user = null;
+        UserDTO userDTO = null;
         try {
-           user = userDAO.UserLogin(userName);
+           userDTO = userDAO.UserLogin(userName);
         } catch (Exception e) {
             log.error("{} 登录时，查询用户信息出现异常 {}",getClass(),e.getMessage());
             e.printStackTrace();
         }
-        if(user!=null&&passWord.equals(user.getPassword())){
-            session.setAttribute("loginUser",user.getUsername());
+        if(userDTO!=null&&passWord.equals(userDTO.getPassWord())){
+            session.setAttribute("loginUser",userDTO.getUserName());
+            session.setAttribute("role",userDTO.getRoleName());
             return true;
         }
 
         return false;
+
     }
 }

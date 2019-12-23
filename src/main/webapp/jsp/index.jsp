@@ -29,16 +29,16 @@
     <div class="loadbox"> <img src="../images/index/loading.gif"> 页面加载中... </div>
 </div>
 
-<ul class="layui-nav">
+<ul class="layui-nav" id="index_appbar">
     <li class="layui-nav-item">
         <a href="/gotoIndexPage">湖南省数据</a>
     </li>
     <li class="layui-nav-item">
         <a href="/gotoHengYang">衡阳市数据</a>
     </li>
-    <li class="layui-nav-item">
-        <a href="/gotoDataManagerPage">数据管理中心</a>
-    </li>
+<%--    <li class="layui-nav-item" id="">--%>
+<%--        <a href="/gotoDataManagerPage">数据管理中心</a>--%>
+<%--    </li>--%>
 
     <ul class="layui-nav layui-layout-right" lay-filter="rightNav">
     <li class="layui-nav-item">
@@ -54,7 +54,6 @@
     <li class="layui-nav-item"><a href="/logout">退出</a></li>
     </ul>
 </ul>
-
 <div class="head">
     <h1>湖南省大数据展板</h1>
     <div class="weather"><!--<img src="picture/weather.png"><span>多云转小雨</span>--><span id="showTime"></span></div>
@@ -145,9 +144,13 @@
         </li>
     </ul>
 </div>
-
+<!--获取登录后的角色名称-->
+<script type="text/javascript">
+    var role="${sessionScope.role}";
+</script>
 <script type="text/javascript" src="../js/IndexJs/china.js"></script>
 <script type="text/javascript" src="../js/IndexJs/hunan_echarts.js"></script>
 <script type="text/javascript" src="../layui/layui.js"></script>
+<script type="text/javascript" src="../js/index_app_bar.js"></script>
 </body>
 </html>

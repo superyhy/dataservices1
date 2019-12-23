@@ -1,5 +1,6 @@
 package com.yhy.dataservices.dao;
 
+import com.yhy.dataservices.dto.UserDTO;
 import com.yhy.dataservices.entity.User;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +14,5 @@ public interface UserDAO {
      * @param username
      * @return
      */
-    User UserLogin(String username);
+    UserDTO UserLogin(String username);
 }

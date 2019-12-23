@@ -8,23 +8,19 @@
     <link rel="stylesheet" href="../layui/css/layui.css">
     <title>衡阳市数据</title>
 
-    <script src="../jquery/jquery-3.4.1.min.js"></script>
-    <script src="../js/hengyang/rem.js"></script>
-    <script src="../js/hengyang/echarts.min.js"></script>
-    <script src="../js/hengyang/index.js"></script>
 </head>
 <body>
 
-<ul class="layui-nav">
+<ul class="layui-nav" id="index_appbar">
     <li class="layui-nav-item">
         <a href="/gotoIndexPage">湖南省数据</a>
     </li>
     <li class="layui-nav-item">
         <a href="/gotoHengYang">衡阳市数据</a>
     </li>
-    <li class="layui-nav-item">
-        <a href="/gotoDataManagerPage">数据管理中心</a>
-    </li>
+<%--    <li class="layui-nav-item">--%>
+<%--        <a href="/gotoDataManagerPage">数据管理中心</a>--%>
+<%--    </li>--%>
 
     <ul class="layui-nav layui-layout-right" lay-filter="rightNav">
         <li class="layui-nav-item">
@@ -117,5 +113,15 @@
             </div>
         </main>
 </div>
+
+<!--获取登录后的角色名称-->
+<script type="text/javascript">
+    var role="${sessionScope.role}";
+</script>
+<script type="text/javascript" src="../js/index_app_bar.js"></script>
+<script type="text/javascript" src="../jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/hengyang/rem.js"></script>
+<script type="text/javascript" src="../js/hengyang/echarts.min.js"></script>
+<script type="text/javascript" src="../js/hengyang/index.js"></script>
 </body>
 </html>

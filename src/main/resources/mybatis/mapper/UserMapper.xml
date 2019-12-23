@@ -3,7 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yhy.dataservices.dao.UserDAO">
-    <select id="UserLogin" resultType="com.yhy.dataservices.entity.User">
-        select * from user where username=#{username}
+    <select id="UserLogin" resultType="com.yhy.dataservices.dto.UserDTO">
+        select
+        a.username,
+        a.password,
+        b.role_name
+        from
+        user a
+        left join
+        role b
+        on
+        a.role=b.id
+        where username=#{username}
     </select>
 </mapper>
