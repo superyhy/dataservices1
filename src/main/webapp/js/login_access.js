@@ -1,5 +1,5 @@
 //var roleName="${role}";
-
+//根据登录的角色，判断是否显示管理中心入口
 var ul=document.getElementById("index_appbar")
 var li=document.createElement("li");
 

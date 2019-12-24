@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/index_hy.css">
-    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../../css/index_hy.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css">
     <title>衡阳市数据</title>
 
 </head>
@@ -25,7 +25,7 @@
     <ul class="layui-nav layui-layout-right" lay-filter="rightNav">
         <li class="layui-nav-item">
             <a href="javascript:;">
-                <img src="../images/index/touxiang.jpg" class="layui-nav-img">
+                <img src="../../images/index/touxiang.jpg" class="layui-nav-img">
                 <span style="color: #F7F7F7"> ${loginUser}</span>
             </a>
             <dl class="layui-nav-child">
@@ -118,10 +118,10 @@
 <script type="text/javascript">
     var role="${sessionScope.role}";
 </script>
-<script type="text/javascript" src="../js/index_app_bar.js"></script>
-<script type="text/javascript" src="../jquery/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="../js/hengyang/rem.js"></script>
-<script type="text/javascript" src="../js/hengyang/echarts.min.js"></script>
-<script type="text/javascript" src="../js/hengyang/index.js"></script>
+<script type="text/javascript" src="../../js/login_access.js"></script>
+<script type="text/javascript" src="../../jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../../js/hengyang/rem.js"></script>
+<script type="text/javascript" src="../../js/hengyang/echarts.min.js"></script>
+<script type="text/javascript" src="../../js/hengyang/index.js"></script>
 </body>
 </html>

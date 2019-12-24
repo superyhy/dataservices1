@@ -39,7 +39,7 @@
                 权限管理</a>
             <dl class="layui-nav-child">
                 <dd><a href="rule.html">规则列表</a></dd>
-                <dd><a href="role.html">角色列表</a></dd>
+                <dd><a href="/gotoRoleList">角色列表</a></dd>
                 <dd><a href="adminRole.html">用户角色</a></dd>
             </dl>
         </li>

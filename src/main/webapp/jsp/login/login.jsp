@@ -6,15 +6,15 @@
 <meta http-equiv="Cache-Control" content="no-cache"> 
 <meta http-equiv="Expires" content="0"> 
 <title>登录</title>
-<link rel="shortcut icon" href="../favicon.ico">
+<link rel="shortcut icon" href="../../favicon.ico">
 <link href="/css/login.css" rel="stylesheet" type="text/css" />
-<link href="../layui/css/layui.css" rel="stylesheet" type="text/css" />
+<link href="../../layui/css/layui.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="login_box">
-      <div class="login_l_img"><img src="../images/login/login-img.png" /></div>
+      <div class="login_l_img"><img src="../../images/login/login-img.png" /></div>
       <div class="login">
-          <div class="login_logo"><a href="#"><img src="../images/login/login_logo.png" /></a></div>
+          <div class="login_logo"><a href="#"><img src="../../images/login/login_logo.png" /></a></div>
           <div class="login_name">
                <p>数据分析平台</p>
           </div>
@@ -29,7 +29,7 @@
       <div class="copyright">郁涵艺 版权所有©2016-2020 </div>
 </div>
 </body>
-<script type="text/javascript" src="../jquery/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="../js/user.js"></script>
-<script type="text/javascript" src="../layui/layui.all.js"></script>
+<script type="text/javascript" src="../../jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../../js/user.js"></script>
+<script type="text/javascript" src="../../layui/layui.all.js"></script>
 </html>

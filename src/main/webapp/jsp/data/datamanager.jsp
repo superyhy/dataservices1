@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>数据分析平台</title>
-  <link rel="stylesheet" href="../layui/css/layui.css">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../icheck/minimal/red.css">
+  <link rel="stylesheet" href="../../layui/css/layui.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../icheck/minimal/red.css">
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
   <div class="layui-header">
-      <%@ include file="public/header.jsp"%>
+      <%@ include file="../public/header.jsp"%>
   </div>
   
   <div class="layui-side layui-bg-black" id="main-layout">
       <!--导航栏-->
-      <%@ include file="public/navigationbar.jsp"%>
+      <%@ include file="../public/navigationbar.jsp"%>
   </div>
   
   <div class="layui-body">
@@ -86,11 +86,11 @@
     <!-- 底部固定区域 -->
     © 郁涵艺 -南华大学2016-2020  </div>
 </div>
-<script type="text/javascript" src="../jquery/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="../layui/layui.js"></script>
-<script type="text/javascript" src="../icheck/icheck.js"></script>
-<script type="text/javascript" src="../js/IndexJs/dw.js"></script>
-<script type="text/javascript" src="../js/data/datamanager.js"></script>
-<script type="text/javascript" src="../js/data/data_form_submit.js"></script>
+<script type="text/javascript" src="../../jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../icheck/icheck.js"></script>
+<script type="text/javascript" src="../../js/IndexJs/dw.js"></script>
+<script type="text/javascript" src="../../js/data/datamanager.js"></script>
+<script type="text/javascript" src="../../js/data/data_form_submit.js"></script>
 </body>
 </html>

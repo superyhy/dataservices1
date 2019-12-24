@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhy.dataservices.dao.AccessDAO">
+    <select id="getRoleList" resultType="com.yhy.dataservices.entity.Role">
+        select * from
+        role
+        <where>
+            <if test="name!=null and name!=''">
+                and name like CONCAT('%',#{name},'%' )
+            </if>
+        </where>
+        order by
+        create_time
+        desc
+    </select>
+
+    <select id="checkRoleExist" resultType="java.lang.Integer">
+        select count(*) from
+        role
+        where
+        role_name=#{roleName}
+    </select>
+
+    <insert id="addRole">
+        insert into
+        role(role,role_name,role_describe)
+        values
+        (#{role},#{roleName},#{roleDescribe})
+    </insert>
+</mapper>

@@ -11,7 +11,7 @@ public class JspRedirectController {
      */
     @GetMapping("/gotoIndexPage")
     public String gotoIndexPage(){
-        return "index";
+        return "index/index";
     }
 
     /**
@@ -20,7 +20,7 @@ public class JspRedirectController {
      */
     @GetMapping("/gotoScreenPage")
     public String gotoScreenPage(){
-        return "index";
+        return "index/index";
     }
 
     /**
@@ -29,7 +29,7 @@ public class JspRedirectController {
      */
     @GetMapping("/gotoLoginPage")
     public String gotoLoginPage(){
-        return "login";
+        return "login/login";
     }
 
     /**
@@ -38,7 +38,7 @@ public class JspRedirectController {
      */
     @GetMapping("/gotoDataManagerPage")
     public String gotoDataManagerPage(){
-        return "datamanager";
+        return "data/datamanager";
     }
 
     /**
@@ -47,7 +47,7 @@ public class JspRedirectController {
      */
     @GetMapping("/gotoCreatePage")
     public String gotoCreatePage(){
-        return "create";
+        return "data/create";
     }
 
     /**
@@ -56,16 +56,34 @@ public class JspRedirectController {
      */
     @GetMapping("/gotoEditPage")
     public String gotoEditPage(){
-        return "data_edit";
+        return "data/data_edit";
     }
 
     /**
-     *
+     *前往衡阳市，数据大屏
      * @return
      */
     @GetMapping("/gotoHengYang")
     public String gotoHengYang(){
-        return "hengyang_index";
+        return "hengyang_index/hengyang_index";
+    }
+
+    /**
+     * 前往角色列表页面
+     * @return
+     */
+    @GetMapping("/gotoRoleList")
+    public String gotoRoleList(){
+        return "access/roleList";
+    }
+
+    /**
+     * 前往添加角色页面
+     * @return
+     */
+    @GetMapping("/gotoAddRole")
+    public String gotoAddRole(){
+        return "access/addRole";
     }
 
 }

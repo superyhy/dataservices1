@@ -3,11 +3,9 @@ package com.yhy.dataservices.controller;
 import com.yhy.dataservices.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
@@ -29,6 +27,6 @@ public class UserController {
         session.removeAttribute("loginUser");
         session.invalidate();
          //回到登录页面
-        return "login";
+        return "login/login";
     }
 }

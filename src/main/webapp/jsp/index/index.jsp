@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>数据分析平台</title>
-    <script type="text/javascript" src="../jquery/jquery.js"></script>
-    <link rel="stylesheet" href="../css/comon0.css">
-    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../../jquery/jquery.js"></script>
+    <link rel="stylesheet" href="../../css/comon0.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css">
 </head>
 <script>
     $(window).load(function(){
@@ -22,15 +22,15 @@
         });
     });
 </script>
-<script type="text/javascript" src="../js/IndexJs/echarts.min.js"></script>
-<script language="JavaScript" src="../js/IndexJs/js.js"></script>
+<script type="text/javascript" src="../../js/IndexJs/echarts.min.js"></script>
+<script language="JavaScript" src="../../js/IndexJs/js.js"></script>
 <body>
 <div class="loading">
-    <div class="loadbox"> <img src="../images/index/loading.gif"> 页面加载中... </div>
+    <div class="loadbox"> <img src="../../images/index/loading.gif"> 页面加载中... </div>
 </div>
 
 <ul class="layui-nav" id="index_appbar">
-    <li class="layui-nav-item">
+    <li class="layui-nav-item ">
         <a href="/gotoIndexPage">湖南省数据</a>
     </li>
     <li class="layui-nav-item">
@@ -43,7 +43,7 @@
     <ul class="layui-nav layui-layout-right" lay-filter="rightNav">
     <li class="layui-nav-item">
         <a href="javascript:;">
-            <img src="../images/index/touxiang.jpg" class="layui-nav-img">
+            <img src="../../images/index/touxiang.jpg" class="layui-nav-img">
             <span style="color: #F7F7F7"> ${loginUser}</span>
         </a>
         <dl class="layui-nav-child">
@@ -119,9 +119,9 @@
                 </div>
             </div>
             <div class="map">
-                <div class="map1"><img src="../images/index/lbx.png"></div>
-                <div class="map2"><img src="../images/index/jt.png"></div>
-                <div class="map3"><img src="../images/index/map.png"></div>
+                <div class="map1"><img src="../../images/index/lbx.png"></div>
+                <div class="map2"><img src="../../images/index/jt.png"></div>
+                <div class="map3"><img src="../../images/index/map.png"></div>
                 <div class="map4" id="map_hunan"></div>
             </div>
         </li>
@@ -148,9 +148,9 @@
 <script type="text/javascript">
     var role="${sessionScope.role}";
 </script>
-<script type="text/javascript" src="../js/IndexJs/china.js"></script>
-<script type="text/javascript" src="../js/IndexJs/hunan_echarts.js"></script>
-<script type="text/javascript" src="../layui/layui.js"></script>
-<script type="text/javascript" src="../js/index_app_bar.js"></script>
+<script type="text/javascript" src="../../js/IndexJs/china.js"></script>
+<script type="text/javascript" src="../../js/IndexJs/hunan_echarts.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/login_access.js"></script>
 </body>
 </html>

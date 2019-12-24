@@ -14,7 +14,7 @@
     <div class="layui-logo">layui 后台布局</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="datamanager.jsp">用户列表</a></li>
+      <li class="layui-nav-item"><a href="data/datamanager.jsp">用户列表</a></li>
       <li class="layui-nav-item"><a href="member.jsp">会员列表</a></li>
     </ul>
     <ul class="layui-nav layui-layout-right">
@@ -46,7 +46,7 @@
         <li class="layui-nav-item">
           <a href="javascript:;">用户管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="datamanager.jsp">用户列表</a></dd>
+            <dd><a href="data/datamanager.jsp">用户列表</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item">
