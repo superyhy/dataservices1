@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
         }
         if(userDTO!=null&&passWord.equals(userDTO.getPassWord())){
             session.setAttribute("loginUser",userDTO.getUserName());
-            session.setAttribute("role",userDTO.getRoleName());
+            session.setAttribute("role",userDTO.getRole());
             return true;
         }
 

@@ -7,8 +7,8 @@
         select * from
         role
         <where>
-            <if test="name!=null and name!=''">
-                and name like CONCAT('%',#{name},'%' )
+            <if test="roleName!=null and roleName!=''">
+                and role_name like CONCAT('%',#{roleName},'%' )
             </if>
         </where>
         order by
@@ -29,4 +29,67 @@
         values
         (#{role},#{roleName},#{roleDescribe})
     </insert>
+
+    <delete id="deleteRole">
+        delete from
+        role
+        where
+        id=#{id}
+    </delete>
+
+    <select id="getRoleById" resultType="com.yhy.dataservices.entity.Role">
+        select * from
+        role
+        where
+        id=#{id}
+    </select>
+
+    <update id="updateRole">
+        update role
+        <trim prefix="SET" suffixOverrides=",">
+        <if test="roleName!=null and roleName!=''">
+            role_name=#{roleName},
+        </if>
+        <if test="role!=null and role!=''">
+            role=#{role},
+        </if>
+
+        <if test="roleDescribe!=null and roleDescribe!=''">
+            role_describe=#{roleDescribe},
+        </if>
+        </trim>
+        where id=#{id}
+    </update>
+
+    <select id="checkRoleNameExceptMe" resultType="java.lang.Integer">
+        select count(*)
+        from
+        role
+        where
+        role_name=#{roleName}
+        and
+        id!=#{id}
+    </select>
+
+    <select id="getUserAccessList" resultType="com.yhy.dataservices.dto.UserAccessDTO">
+        select
+        a.username,
+        b.role_name,
+        b.role,
+        b.role_describe
+        from
+        user a
+        left join
+        role b
+        on
+        a.role=b.id
+        <where>
+            <if test="userName!=null and userName!=''">
+                and username like CONCAT('%',#{userName},'%' )
+            </if>
+        </where>
+        order by
+        a.create_time
+        desc
+    </select>
 </mapper>

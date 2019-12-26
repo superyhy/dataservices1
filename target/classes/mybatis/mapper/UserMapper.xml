@@ -7,7 +7,7 @@
         select
         a.username,
         a.password,
-        b.role_name
+        b.role
         from
         user a
         left join

@@ -83,3 +83,91 @@ function queryBtn() {
     $("[name='pageNum']").val("");//清空页号
     queryRoleList();//分页查询课程信息
 }
+
+
+// +----------------------------------------------------------------------
+// |删除操作
+// +----------------------------------------------------------------------
+function  deleteButton(id) {
+    layer.confirm('您确定要删除吗？',{
+        icon: 3 ,
+        title: '提示',
+        btn: ['是','否'] //按钮
+    }, function(){
+        $.ajax({
+            url:'/deleteRole/'+id,
+            type:'get', //GET
+            async:true,    //或false,是否异步
+            timeout:5000,    //超时时间
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+            success:function(data){
+                console.log(data);
+                if (data){
+                    var layer=layui.layer;
+                    layer.msg("操作成功",{icon: 1}, function (index) {
+                        CloseWin();
+                    })
+                }else {
+                    var layer=layui.layer;
+                    layer.msg("删除失败");
+                }
+            },
+            error:function(xhr,textStatus){
+                console.log('错误')
+                console.log(xhr)
+                console.log(textStatus)
+            },
+            complete:function(){
+                //console.log('结束')
+            }
+        })
+    }, function(){
+        // 事务回调
+    });
+
+}
+
+//关闭子页面，返回父页面
+function CloseWin(){
+    parent.location.reload(); // 父页面刷新
+    var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+    parent.layer.close(index); //再执行关闭
+}
+
+
+// +----------------------------------------------------------------------
+// | 点击编辑，跳转编辑页面（在父页面展示子页面，子页面可关闭）
+// +----------------------------------------------------------------------
+
+function editButton(id) {
+    // var tr_s = $(obj).parent().parent();//获取到tr元素
+    // var data_id = tr_s.find("td:eq(0)").children(":radio").val();//定位到第一个radio的元素获取隐藏的主键
+    course_tab_show('编辑角色','./gotoEditRole?role_id='+id);//打开修改的基本信息层
+}
+
+
+function course_tab_show(title,url,w,h){
+    if (title == null || title == '') {
+        title=false;
+    };
+    if (url == null || url == '') {
+        url="404.html";
+    };
+    if (w == null || w == '') {
+        w=($(window).width()*0.90);
+    };
+    if (h == null || h == '') {
+        h=($(window).height()-50);
+    };
+    layer.open({
+        type: 2,
+        area: [w+'px', h +'px'],
+        fix: false, //不固定
+        maxmin: true,
+        shadeClose: true,
+        shade:0.4,
+        title: title,
+        content: url
+    });
+}
+

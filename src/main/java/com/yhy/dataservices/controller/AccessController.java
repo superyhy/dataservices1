@@ -1,6 +1,7 @@
 package com.yhy.dataservices.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.yhy.dataservices.dto.UserAccessDTO;
 import com.yhy.dataservices.entity.Role;
 import com.yhy.dataservices.service.AccessService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class AccessController {
     @ResponseBody
     public PageInfo<Role> getRoleList(@RequestParam("pageNum") Integer pageNum,
                                       @RequestParam("pageSize") Integer pageSize,
-                                      @RequestParam("name") String name){
-        return accessService.getRoleList(pageNum, pageSize, name);
+                                      @RequestParam("roleName") String roleName){
+        return accessService.getRoleList(pageNum, pageSize, roleName);
     }
 
     /**
@@ -37,7 +38,58 @@ public class AccessController {
      */
     @PostMapping("/addRole")
     @ResponseBody
-    public Map<String,Object> addRoleList(@RequestBody Role role){
+    public Map<String,Object> addRole(@RequestBody Role role){
         return accessService.addRole(role);
     }
+
+
+    /**
+     * 删除角色
+     * @param id
+     * @return
+     */
+    @GetMapping("/deleteRole/{id}")
+    @ResponseBody
+    public Boolean deleteRole(@PathVariable Integer id){
+        return accessService.deleteRole(id);
+    }
+
+    /**
+     * 根据Id，获取role
+     * @param id
+     * @return
+     */
+    @GetMapping("/getRoleById/{id}")
+    @ResponseBody
+    public Role getRoleById(@PathVariable Integer id){
+        return accessService.getRoleById(id);
+    }
+
+    /**
+     * 更新角色
+     * @param role
+     * @return
+     */
+    @PostMapping("/updateRole")
+    @ResponseBody
+    public Map<String, Object> updateRole(@RequestBody Role role){
+        return accessService.updateRole(role);
+    }
+
+    /**
+     * 分页获取用户权限列表
+     * @param pageSize
+     * @param pageNum
+     * @param userName
+     * @return
+     */
+    @GetMapping("/queryUserAccessList")
+    @ResponseBody
+    public PageInfo<UserAccessDTO> queryUserAccessList(@RequestParam Integer pageSize,
+                                                       @RequestParam Integer pageNum,
+                                                       @RequestParam String userName){
+           return accessService.getUserAccessList(pageSize, pageNum, userName);
+    }
+
+
 }

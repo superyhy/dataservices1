@@ -3,6 +3,7 @@ package com.yhy.dataservices.service.Impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.yhy.dataservices.dao.AccessDAO;
+import com.yhy.dataservices.dto.UserAccessDTO;
 import com.yhy.dataservices.entity.Role;
 import com.yhy.dataservices.service.AccessService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,7 @@ public class AccessServiceImpl implements AccessService {
     AccessDAO accessDAO;
 
     @Override
-    public PageInfo<Role> getRoleList(Integer pageNum, Integer pageSize, String name) {
+    public PageInfo<Role> getRoleList(Integer pageNum, Integer pageSize, String roleName) {
         List<Role> resultList=new ArrayList<>();
 
         //定义初始化的pageSize，pageNum
@@ -36,7 +37,7 @@ public class AccessServiceImpl implements AccessService {
         //开始分页
         PageHelper.startPage(pageNum1, pageSize1);
         try{
-            resultList=accessDAO.getRoleList(name);
+            resultList=accessDAO.getRoleList(roleName);
         } catch (Exception e) {
             log.error("{} 分页查询出现异常 {}",getClass(),e.getMessage());
             e.printStackTrace();
@@ -78,5 +79,86 @@ public class AccessServiceImpl implements AccessService {
 
             return resultMap;
 
+    }
+
+    @Override
+    public Boolean deleteRole(Integer id) {
+         boolean flag=true;
+         try{
+             flag=accessDAO.deleteRole(id);
+         } catch (Exception e) {
+             log.error("{} 删除角色异常 ",getClass(),e);
+             e.printStackTrace();
+         }
+
+         return flag;
+    }
+
+    @Override
+    public Role getRoleById(Integer id) {
+        Role role=new Role();
+        try{
+            role=accessDAO.getRoleById(id);
+        } catch (Exception e) {
+            log.error("{} 获取role失败 ",getClass(),e);
+            e.printStackTrace();
+        }
+        return role;
+    }
+
+
+    @Override
+    public Map<String,Object> updateRole(Role role) {
+
+        Map<String,Object> resultList=new HashMap<>();
+        int count=0;
+        try{
+            count=accessDAO.checkRoleNameExceptMe(role.getRoleName(), (int) role.getId());
+        } catch (Exception e) {
+            log.info("{} 查询除自已外的角色名，失败 ",getClass(),e);
+            e.printStackTrace();
+        }
+        if(count>0){
+            resultList.put("code",401);
+            resultList.put("msg","已有其他用户，使用该名称");
+            return resultList;
+        }
+        try{
+            accessDAO.updateRole(role);
+        } catch (Exception e) {
+            log.error("{} 更新角色失败 ",getClass(),e);
+            e.printStackTrace();
+        }
+
+        resultList.put("code",200);
+        resultList.put("msg","操作成功");
+        return resultList;
+    }
+
+    @Override
+    public PageInfo<UserAccessDTO> getUserAccessList(Integer pageSize, Integer pageNum, String userName) {
+        List<UserAccessDTO> resultList=new ArrayList<>();
+
+        //定义初始化的pageSize，pageNum
+        int pageNum1 = 1;
+        if(pageNum!=null){ //如果不为空的话改变当前页号
+            pageNum1 = pageNum;
+        }
+        int pageSize1 = 4;
+        if(pageSize!=null){ //如果不为空的话改变当前页大小
+            pageSize1 =pageSize ;
+        }
+        //开始分页
+        PageHelper.startPage(pageNum1, pageSize1);
+        try{
+            resultList=accessDAO.getUserAccessList(userName);
+        } catch (Exception e) {
+            log.error("{} 分页查询出现异常 {}",getClass(),e.getMessage());
+            e.printStackTrace();
+        }
+
+        PageInfo<UserAccessDTO> pageInfo=new PageInfo<>(resultList);
+
+        return pageInfo;
     }
 }

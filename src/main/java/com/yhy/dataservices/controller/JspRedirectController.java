@@ -86,4 +86,23 @@ public class JspRedirectController {
         return "access/addRole";
     }
 
+    /**
+     * 前往编辑角色页面
+     * @return
+     */
+    @GetMapping("/gotoEditRole")
+    public String gotoEditRole(){
+        return "access/editRole";
+    }
+
+    /**
+     * 前往用户权限界面
+     * @return
+     */
+    @GetMapping("/gotoUserAccess")
+    public String gotoUserAccess(){
+        return "access/userAccess";
+    }
+
+
 }
