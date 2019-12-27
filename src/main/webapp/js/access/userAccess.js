@@ -75,11 +75,46 @@ function startPage(total,pageNum,pageSize,pages){
 
 }
 
-
 /**
  * 点击查询的事件
  */
 function queryBtn() {
     $("[name='pageNum']").val("");//清空页号
     queryUserAccessList();//分页查询课程信息
+}
+
+// +----------------------------------------------------------------------
+// | 点击编辑，跳转编辑页面（在父页面展示子页面，子页面可关闭）
+// +----------------------------------------------------------------------
+
+function editButton(id) {
+    // var tr_s = $(obj).parent().parent();//获取到tr元素
+    // var data_id = tr_s.find("td:eq(0)").children(":radio").val();//定位到第一个radio的元素获取隐藏的主键
+    course_tab_show('用户权限','./gotoUserAccessEdit?role_id='+id);//打开修改的基本信息层
+}
+
+
+function course_tab_show(title,url,w,h){
+    if (title == null || title == '') {
+        title=false;
+    };
+    if (url == null || url == '') {
+        url="404.html";
+    };
+    if (w == null || w == '') {
+        w=($(window).width()*0.40);
+    };
+    if (h == null || h == '') {
+        h=($(window).height()-200);
+    };
+    layer.open({
+        type: 2,
+        area: [w+'px', h +'px'],
+        fix: false, //不固定
+        maxmin: true,
+        shadeClose: true,
+        shade:0.4,
+        title: title,
+        content: url
+    });
 }

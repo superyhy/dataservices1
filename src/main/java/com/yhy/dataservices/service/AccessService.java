@@ -2,9 +2,12 @@ package com.yhy.dataservices.service;
 
 
 import com.github.pagehelper.PageInfo;
+import com.yhy.dataservices.dto.ChangeRoleDTO;
+import com.yhy.dataservices.dto.UpdateUserAccessRequestDTO;
 import com.yhy.dataservices.dto.UserAccessDTO;
 import com.yhy.dataservices.entity.Role;
 
+import java.util.List;
 import java.util.Map;
 
 public interface AccessService {
@@ -55,5 +58,18 @@ public interface AccessService {
      * @return
      */
     PageInfo<UserAccessDTO> getUserAccessList(Integer pageSize,Integer pageNum,String userName);
+
+    /**
+     * 获取角色的下拉框
+     * @return
+     */
+    List<ChangeRoleDTO> getChangeRoleList();
+
+    /**
+     * 修改用户权限
+     * @param updateDTO
+     * @return
+     */
+    Boolean updateUserAccess(UpdateUserAccessRequestDTO updateDTO);
 
 }

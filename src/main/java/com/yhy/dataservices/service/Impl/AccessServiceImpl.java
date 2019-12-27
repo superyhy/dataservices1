@@ -3,6 +3,8 @@ package com.yhy.dataservices.service.Impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.yhy.dataservices.dao.AccessDAO;
+import com.yhy.dataservices.dto.ChangeRoleDTO;
+import com.yhy.dataservices.dto.UpdateUserAccessRequestDTO;
 import com.yhy.dataservices.dto.UserAccessDTO;
 import com.yhy.dataservices.entity.Role;
 import com.yhy.dataservices.service.AccessService;
@@ -160,5 +162,31 @@ public class AccessServiceImpl implements AccessService {
         PageInfo<UserAccessDTO> pageInfo=new PageInfo<>(resultList);
 
         return pageInfo;
+    }
+
+    @Override
+    public List<ChangeRoleDTO> getChangeRoleList() {
+         List<ChangeRoleDTO> resultList=new ArrayList<>();
+
+         try{
+             resultList=accessDAO.getChangeRoleList();
+         } catch (Exception e) {
+             log.error("{} 获取角色下拉框失败 ",getClass(),e);
+             e.printStackTrace();
+         }
+         return  resultList;
+    }
+
+    @Override
+    public Boolean updateUserAccess(UpdateUserAccessRequestDTO updateDTO) {
+        boolean flag=true;
+        try{
+            flag=accessDAO.updateUserAccess(updateDTO.getRoleId(),updateDTO.getId());
+        } catch (Exception e) {
+            log.error("{} 修改用户权限，异常 {}",getClass(),e.getMessage());
+            e.printStackTrace();
+        }
+
+        return flag;
     }
 }

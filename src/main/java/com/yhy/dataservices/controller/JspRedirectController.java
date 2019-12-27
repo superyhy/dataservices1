@@ -104,5 +104,21 @@ public class JspRedirectController {
         return "access/userAccess";
     }
 
+    /**
+     * 前往用户权限编辑页面
+     * @return
+     */
+    @GetMapping("/gotoUserAccessEdit")
+    public String gotoUserAccessEdit(){
+        return "access/userAccess_edit";
+    }
 
+    /**
+     * 前往密码修改页面
+     * @return
+     */
+    @GetMapping("/gotoPassWord")
+    public String gotoPassWord(){
+        return "user_manager/password";
+    }
 }

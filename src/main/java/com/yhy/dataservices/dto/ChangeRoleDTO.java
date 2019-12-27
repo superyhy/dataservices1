@@ -7,23 +7,15 @@ import lombok.NoArgsConstructor;
 
 
 /**
- * 用户权限列表的DTO
+ * 下拉框，角色列表的DTO
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserAccessDTO {
+public class ChangeRoleDTO {
 
-    //用户表主键ID
     private Integer id;
 
-    private String userName;
-
     private String roleName;
-
-    private String role;
-
-    private String roleDescribe;
-
 }

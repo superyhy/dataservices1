@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>数据分析平台</title>
-    <script type="text/javascript" src="../../jquery/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>湖南省数据</title>
+    <script type="text/javascript" src="../jquery/jquery.js"></script>
     <link rel="stylesheet" href="../../css/comon0.css">
     <link rel="stylesheet" href="../../layui/css/layui.css">
 </head>
@@ -30,25 +31,27 @@
 </div>
 
 <ul class="layui-nav" id="index_appbar">
+
     <li class="layui-nav-item ">
         <a href="/gotoIndexPage">湖南省数据</a>
     </li>
     <li class="layui-nav-item">
         <a href="/gotoHengYang">衡阳市数据</a>
     </li>
+
 <%--    <li class="layui-nav-item" id="">--%>
 <%--        <a href="/gotoDataManagerPage">数据管理中心</a>--%>
 <%--    </li>--%>
 
     <ul class="layui-nav layui-layout-right" lay-filter="rightNav">
-    <li class="layui-nav-item">
+    <li class="layui-nav-item" lay-unselect="">
         <a href="javascript:;">
             <img src="../../images/index/touxiang.jpg" class="layui-nav-img">
             <span style="color: #F7F7F7"> ${loginUser}</span>
         </a>
-        <dl class="layui-nav-child">
+        <dl class="layui-nav-child" style="z-index: 9999">
+            <dd><a onclick="changePassword();" >密码修改</a></dd>
             <dd><a href="">基本资料</a></dd>
-            <dd><a href="">安全设置</a></dd>
         </dl>
     </li>
     <li class="layui-nav-item"><a href="/logout">退出</a></li>
@@ -152,5 +155,12 @@
 <script type="text/javascript" src="../../js/IndexJs/hunan_echarts.js"></script>
 <script type="text/javascript" src="../../layui/layui.js"></script>
 <script type="text/javascript" src="../../js/login_access.js"></script>
+<script>
+    layui.use('element',function () {
+        var element=layui.element;
+        element.init();
+        element.render();
+    });
+</script>
 </body>
 </html>

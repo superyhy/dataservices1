@@ -73,6 +73,7 @@
 
     <select id="getUserAccessList" resultType="com.yhy.dataservices.dto.UserAccessDTO">
         select
+        a.id,
         a.username,
         b.role_name,
         b.role,
@@ -92,4 +93,22 @@
         a.create_time
         desc
     </select>
+
+    <select id="getChangeRoleList" resultType="com.yhy.dataservices.dto.ChangeRoleDTO">
+        select
+        id,role_name
+        from
+        role
+        where
+        1=1
+    </select>
+
+    <update id="updateUserAccess" parameterType="com.yhy.dataservices.dto.UpdateUserAccessRequestDTO">
+        update
+        user
+        set
+        role=#{roleId}
+        where
+        id=#{id}
+    </update>
 </mapper>

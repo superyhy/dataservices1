@@ -29,8 +29,8 @@
                 <span style="color: #F7F7F7"> ${loginUser}</span>
             </a>
             <dl class="layui-nav-child">
+                <dd><a onclick="changePassword()">密码修改</a></dd>
                 <dd><a href="">基本资料</a></dd>
-                <dd><a href="">安全设置</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item"><a href="/logout">退出</a></li>
@@ -121,7 +121,15 @@
 <script type="text/javascript" src="../../js/login_access.js"></script>
 <script type="text/javascript" src="../../jquery/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="../../js/hengyang/rem.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
 <script type="text/javascript" src="../../js/hengyang/echarts.min.js"></script>
 <script type="text/javascript" src="../../js/hengyang/index.js"></script>
+<script>
+    layui.use('element',function () {
+        var element=layui.element;
+        element.init();
+        element.render();
+    })
+</script>
 </body>
 </html>

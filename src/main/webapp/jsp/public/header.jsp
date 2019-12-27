@@ -7,7 +7,7 @@
 
 </head>
 <body>
-    <div class="layui-logo">数据分析平台</div>
+    <div class="layui-logo">管理中心</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left" lay-filter="leftNav">
         <li class="layui-nav-item"><a href="/gotoIndexPage">湖南省数据</a></li>
@@ -21,8 +21,8 @@
                 <span style="color: #F7F7F7"> ${loginUser}</span>
             </a>
             <dl class="layui-nav-child">
+                <dd><a href="">密码修改</a></dd>
                 <dd><a href="">基本资料</a></dd>
-                <dd><a href="">安全设置</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item"><a href="/logout">退出</a></li>

@@ -1,6 +1,8 @@
 package com.yhy.dataservices.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.yhy.dataservices.dto.ChangeRoleDTO;
+import com.yhy.dataservices.dto.UpdateUserAccessRequestDTO;
 import com.yhy.dataservices.dto.UserAccessDTO;
 import com.yhy.dataservices.entity.Role;
 import com.yhy.dataservices.service.AccessService;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -91,5 +94,25 @@ public class AccessController {
            return accessService.getUserAccessList(pageSize, pageNum, userName);
     }
 
+    /**
+     * 获取角色信息下拉框
+     * @return
+     */
+    @GetMapping("/queryRoleSpinner")
+    @ResponseBody
+    public List<ChangeRoleDTO> queryRoleSpinner(){
+        return accessService.getChangeRoleList();
+    }
+
+    /**
+     * 修改用户权限
+     * @param updateDTO
+     * @return
+     */
+    @PostMapping("/updateUserAccess")
+    @ResponseBody
+    public Boolean updateUserAccess(@RequestBody UpdateUserAccessRequestDTO updateDTO){
+        return accessService.updateUserAccess(updateDTO);
+    }
 
 }

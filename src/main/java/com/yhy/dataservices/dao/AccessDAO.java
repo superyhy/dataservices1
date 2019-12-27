@@ -1,5 +1,6 @@
 package com.yhy.dataservices.dao;
 
+import com.yhy.dataservices.dto.ChangeRoleDTO;
 import com.yhy.dataservices.dto.UserAccessDTO;
 import com.yhy.dataservices.entity.Role;
 import org.apache.ibatis.annotations.Param;
@@ -64,5 +65,21 @@ public interface AccessDAO {
      * @return
      */
    List<UserAccessDTO>  getUserAccessList(String userName);
+
+
+    /**
+     * 获取角色列表下拉框
+     * @return
+     */
+   List<ChangeRoleDTO> getChangeRoleList();
+
+    /**
+     * 修改用户权限
+     * @param roleId
+     * @param id
+     * @return
+     */
+   Boolean updateUserAccess(@Param("roleId") Integer roleId,
+                            @Param("id") Integer id);
 
 }
