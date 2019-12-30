@@ -30,7 +30,7 @@
             </a>
             <dl class="layui-nav-child">
                 <dd><a onclick="changePassword()">密码修改</a></dd>
-                <dd><a href="">基本资料</a></dd>
+                <dd><a onclick="personalPage()">基本资料</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item"><a href="/logout">退出</a></li>

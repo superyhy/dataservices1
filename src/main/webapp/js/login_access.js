@@ -21,6 +21,11 @@ function changePassword() {
     course_tab_show('密码修改','./gotoPassWord');//打开修改的基本信息层
 }
 
+//点击基本资料，前往个人主页
+function personalPage() {
+    course_tab_show('个人资料','./gotoPersonalPage');
+}
+
 function course_tab_show(title,url){
     layui.use("layer",function() {
 
@@ -36,3 +41,5 @@ function course_tab_show(title,url){
         });
     });
 }
+
+

@@ -5,6 +5,7 @@
 <mapper namespace="com.yhy.dataservices.dao.UserDAO">
     <select id="UserLogin" resultType="com.yhy.dataservices.dto.UserDTO">
         select
+        a.id,
         a.username,
         a.password,
         b.role
@@ -16,4 +17,13 @@
         a.role=b.id
         where username=#{username}
     </select>
+
+    <update id="changePassWord">
+        update
+         user
+         set
+         password=#{passWord}
+         where
+         id=#{id}
+    </update>
 </mapper>

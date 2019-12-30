@@ -121,4 +121,13 @@ public class JspRedirectController {
     public String gotoPassWord(){
         return "user_manager/password";
     }
+
+    /**
+     * 前往个人主页
+     * @return
+     */
+    @GetMapping("/gotoPersonalPage")
+    public String gotoPersonalPage(){
+        return "user_manager/personalDetails";
+    }
 }
