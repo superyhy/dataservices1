@@ -9,4 +9,12 @@ public interface UserService {
      * @param userName
      */
      Boolean userLogin(HttpSession session,String userName, String passWord);
+
+    /**
+     * 修改密码
+     * @param id
+     * @param passWord
+     * @return
+     */
+     Boolean changePassWord(Integer id,String passWord);
 }

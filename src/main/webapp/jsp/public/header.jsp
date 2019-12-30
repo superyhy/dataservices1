@@ -21,12 +21,13 @@
                 <span style="color: #F7F7F7"> ${loginUser}</span>
             </a>
             <dl class="layui-nav-child">
-                <dd><a href="">密码修改</a></dd>
+                <dd><a onclick="changePassword();">密码修改</a></dd>
                 <dd><a href="">基本资料</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item"><a href="/logout">退出</a></li>
     </ul>
 
+<script type="text/javascript" src="../../js/login_access.js"></script>
 </body>
 </html>

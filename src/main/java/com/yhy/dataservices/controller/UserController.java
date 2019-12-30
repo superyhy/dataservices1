@@ -29,4 +29,10 @@ public class UserController {
          //回到登录页面
         return "login/login";
     }
+
+    @GetMapping("/changePassword")
+    @ResponseBody
+    public Boolean changePassword(@RequestParam Integer id,@RequestParam String passWord){
+         return userService.changePassWord(id, passWord);
+    }
 }

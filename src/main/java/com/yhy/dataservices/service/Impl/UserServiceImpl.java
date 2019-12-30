@@ -31,6 +31,9 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
         if(userDTO!=null&&passWord.equals(userDTO.getPassWord())){
+
+            session.setAttribute("id",userDTO.getId());
+            session.setAttribute("password",userDTO.getPassWord());
             session.setAttribute("loginUser",userDTO.getUserName());
             session.setAttribute("role",userDTO.getRole());
             return true;
@@ -38,5 +41,17 @@ public class UserServiceImpl implements UserService {
 
         return false;
 
+    }
+
+    @Override
+    public Boolean changePassWord(Integer id, String passWord) {
+        boolean flag;
+        try{
+            flag=userDAO.changePassWord(id, passWord);
+        } catch (Exception e) {
+           log.error("{} 修改密码失败 ",getClass(),e);
+           throw e;
+        }
+        return flag;
     }
 }
