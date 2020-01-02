@@ -47,8 +47,7 @@
             <a href="javascript:;"><i class="layui-icon" style="font-size: 14px; color: #D0D0D0">&#xe613;</i>
                 用户管理</a>
             <dl class="layui-nav-child">
-                <dd><a href="/gotoPassWord">密码修改</a></dd>
-                <dd><a href="member.html">用户列表</a></dd>
+                <dd><a href="/gotoUserPage">用户列表</a></dd>
             </dl>
         </li>
     </ul>

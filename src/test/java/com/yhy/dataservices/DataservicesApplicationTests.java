@@ -3,6 +3,7 @@ package com.yhy.dataservices;
 import com.yhy.dataservices.dao.AccessDAO;
 import com.yhy.dataservices.dao.UserDAO;
 import com.yhy.dataservices.entity.Role;
+import com.yhy.dataservices.entity.User;
 import com.yhy.dataservices.service.AccessService;
 import com.yhy.dataservices.service.AirQualityService;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +47,18 @@ class DataservicesApplicationTests {
         accessDAO.checkRoleExist(name);
 
         Role role=new Role();
+    }
+
+    @Test
+    public void userTest(){
+        User user=new User();
+        user.setUsername("我是谁");
+        user.setPassword("1213");
+        user.setIsAble(1);
+        user.setRoleId(2);
+        userDAO.addUser(user);
+        int count=userDAO.checkUserName("皮卡丘");
+        System.out.println("用户名数量为"+count);
     }
 
 

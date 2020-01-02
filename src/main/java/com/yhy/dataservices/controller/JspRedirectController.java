@@ -130,4 +130,31 @@ public class JspRedirectController {
     public String gotoPersonalPage(){
         return "user_manager/personalDetails";
     }
+
+    /**
+     * 前往用户列表页
+     * @return
+     */
+    @GetMapping("/gotoUserPage")
+    public String gotoUserPage(){
+        return "user_manager/userList";
+    }
+
+    /**
+     * 前往编辑用户状态页面
+     * @return
+     */
+    @GetMapping("/gotoUserState")
+    public String gotoUserState(){
+        return "user_manager/userState";
+    }
+
+    /**
+     * 前往添加用户页面
+     * @return
+     */
+    @GetMapping("/gotoAddUser")
+    public String gotoAddUser(){
+        return "user_manager/addUser";
+    }
 }

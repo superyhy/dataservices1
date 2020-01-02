@@ -18,6 +18,9 @@ public class User {
   private Integer id;
   private String username;
   private String password;
+  private Integer roleId;
+  private Integer isAble;
+  private Date updateTime;
   private Date createTime;
 
 }

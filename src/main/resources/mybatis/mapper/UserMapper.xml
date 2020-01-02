@@ -15,7 +15,10 @@
         role b
         on
         a.role=b.id
-        where username=#{username}
+        where
+        username=#{username}
+        and
+        is_able=1
     </select>
 
     <update id="changePassWord">
@@ -26,4 +29,41 @@
          where
          id=#{id}
     </update>
+
+    <select id="getUserList" resultType="com.yhy.dataservices.entity.User">
+        select * from
+        user
+        <where>
+            <if test="userName!=null and userName!=''">
+                and username like CONCAT('%',#{userName},'%' )
+            </if>
+        </where>
+        order by
+        create_time
+        desc
+    </select>
+
+    <update id="updateUserState">
+        update
+        user
+        set
+        is_able=#{isAble}
+        where
+        id=#{id}
+    </update>
+
+    <insert id="addUser" >
+        insert into
+        user(username, password, role, is_able)
+        values
+        (#{username},#{password},#{roleId},#{isAble})
+    </insert>
+
+    <select id="checkUserName" resultType="java.lang.Integer">
+        select count(*)
+        from
+        user
+        where
+        username=#{userName}
+    </select>
 </mapper>
