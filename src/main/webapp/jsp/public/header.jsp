@@ -7,7 +7,7 @@
 
 </head>
 <body>
-    <div class="layui-logo">管理中心</div>
+    <div class="layui-logo">数据管理中心</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left" lay-filter="leftNav">
         <li class="layui-nav-item"><a href="/gotoIndexPage">湖南省数据</a></li>

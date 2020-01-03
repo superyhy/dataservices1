@@ -1,7 +1,9 @@
 package com.yhy.dataservices;
 
 import com.yhy.dataservices.dao.AccessDAO;
+import com.yhy.dataservices.dao.CityAirQualityDAO;
 import com.yhy.dataservices.dao.UserDAO;
+import com.yhy.dataservices.entity.CityAirQuality;
 import com.yhy.dataservices.entity.Role;
 import com.yhy.dataservices.entity.User;
 import com.yhy.dataservices.service.AccessService;
@@ -10,6 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 @Slf4j
@@ -25,6 +30,10 @@ class DataservicesApplicationTests {
 
     @Autowired
     AccessDAO accessDAO;
+
+    @Autowired
+    CityAirQualityDAO cityAirQualityDAO;
+
 
     @Test
     public void userLoginTest(){
@@ -61,5 +70,13 @@ class DataservicesApplicationTests {
         System.out.println("用户名数量为"+count);
     }
 
-
+    @Test
+   public void cityAirQualityTest(){
+        List<String> cityNames = new ArrayList<>();
+        cityNames.add("长沙");
+        cityNames.add("株洲");
+        List<CityAirQuality> resultList=new ArrayList<>();
+        resultList=cityAirQualityDAO.getCityAirQualityByCityName(cityNames);
+        System.out.println(resultList);
+   }
 }

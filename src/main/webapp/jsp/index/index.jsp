@@ -58,7 +58,7 @@
     </ul>
 </ul>
 <div class="head">
-    <h1>湖南省大数据展板</h1>
+    <h1>湖南省空气质量数据分析</h1>
     <div class="weather"><!--<img src="picture/weather.png"><span>多云转小雨</span>--><span id="showTime"></span></div>
 
     <script>
@@ -110,14 +110,14 @@
             <div class="bar">
                 <div class="barbox">
                     <ul class="clearfix">
-                        <li class="pulll_left counter">12581189</li>
+                        <li class="pulll_left counter">89</li>
                         <li class="pulll_left counter">3912410</li>
                     </ul>
                 </div>
                 <div class="barbox2">
                     <ul class="clearfix">
-                        <li class="pulll_left">2018年总收入情况 </li>
-                        <li class="pulll_left">2018年总支出情况</li>
+                        <li class="pulll_left">2019年AQI平均值</li>
+                        <li class="pulll_left">2019年PM2.5平均值</li>
                     </ul>
                 </div>
             </div>
@@ -130,7 +130,7 @@
         </li>
         <li>
             <div class="boxall" style="height:3.4rem">
-                <div class="alltitle">模块标题样式</div>
+                <div class="alltitle">2019年长沙及株洲两市AQI走势比较</div>
                 <div class="allnav" id="echart4"></div>
                 <div class="boxfoot"></div>
             </div>

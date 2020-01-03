@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 24/12/2019 16:23:07
+ Date: 02/01/2020 16:49:33
 */
 
 SET NAMES utf8mb4;
@@ -31,27 +31,72 @@ CREATE TABLE `air_quality`  (
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
   `aqi` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '空气质量指数',
+  `month` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '2019年月份',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of air_quality
 -- ----------------------------
-INSERT INTO `air_quality` VALUES (1, '株洲', '23', '23', '21', '23', '2019-12-19 16:10:10', '2019-12-19 16:15:58', '34');
-INSERT INTO `air_quality` VALUES (2, '北京', '23', '23', '7', '45', '2019-12-16 11:00:30', NULL, '30');
-INSERT INTO `air_quality` VALUES (3, '南京', '34', '23', '8', '46', '2019-12-16 11:00:53', NULL, '42');
-INSERT INTO `air_quality` VALUES (4, '长沙', '32', '23', '8', '46', '2019-12-16 11:01:13', NULL, '45');
-INSERT INTO `air_quality` VALUES (5, '衡阳', '23', '34', '7', '56', '2019-12-16 11:01:34', NULL, '45');
-INSERT INTO `air_quality` VALUES (6, '广州', '21', '34', '8', '57', '2019-12-16 11:02:03', NULL, '43');
-INSERT INTO `air_quality` VALUES (7, '广州', '34', '34', '8', '25', '2019-12-17 13:55:04', NULL, '34');
-INSERT INTO `air_quality` VALUES (8, '长沙·', '23', '23', '7', '23', '2019-12-17 10:07:01', '2019-12-17 10:07:19', '34');
-INSERT INTO `air_quality` VALUES (9, '长沙', '24', '35', '8', '34', '2019-12-15 10:07:47', '2019-12-17 15:33:43', '42');
-INSERT INTO `air_quality` VALUES (10, '长沙', '24', '34', '8', '24', '2019-12-16 10:08:07', '2019-12-17 15:33:48', '34');
-INSERT INTO `air_quality` VALUES (18, '长沙', '23', '24', '32', '31', '2019-12-18 10:10:59', NULL, '21');
-INSERT INTO `air_quality` VALUES (23, '衡阳', '23', '21', '24', '23', '2019-12-18 11:03:33', NULL, '34');
-INSERT INTO `air_quality` VALUES (24, '郴州', '21', '23', '23', '21', '2019-12-18 11:05:16', NULL, '23');
-INSERT INTO `air_quality` VALUES (25, '株洲', '24', '23', '24', '21', '2019-12-18 11:07:48', '2019-12-19 17:35:50', '21');
-INSERT INTO `air_quality` VALUES (32, '长沙', '23', '23', '23', '23', '2019-12-19 14:32:47', '2019-12-19 15:14:18', '50');
+INSERT INTO `air_quality` VALUES (1, '株洲', '23', '23', '21', '23', '2019-12-19 16:10:10', '2019-12-19 16:15:58', '34', NULL);
+INSERT INTO `air_quality` VALUES (2, '北京', '23', '23', '7', '45', '2019-12-16 11:00:30', NULL, '30', NULL);
+INSERT INTO `air_quality` VALUES (3, '南京', '34', '23', '8', '46', '2019-12-16 11:00:53', NULL, '42', NULL);
+INSERT INTO `air_quality` VALUES (4, '长沙', '32', '23', '8', '46', '2019-12-16 11:01:13', NULL, '45', NULL);
+INSERT INTO `air_quality` VALUES (5, '衡阳', '23', '34', '7', '56', '2019-12-16 11:01:34', NULL, '45', NULL);
+INSERT INTO `air_quality` VALUES (6, '广州', '21', '34', '8', '57', '2019-12-16 11:02:03', NULL, '43', NULL);
+INSERT INTO `air_quality` VALUES (7, '广州', '34', '34', '8', '25', '2019-12-17 13:55:04', NULL, '34', NULL);
+INSERT INTO `air_quality` VALUES (8, '长沙·', '23', '23', '7', '23', '2019-12-17 10:07:01', '2019-12-17 10:07:19', '34', NULL);
+INSERT INTO `air_quality` VALUES (9, '长沙', '24', '35', '8', '34', '2019-12-15 10:07:47', '2019-12-17 15:33:43', '42', NULL);
+INSERT INTO `air_quality` VALUES (10, '长沙', '24', '34', '8', '24', '2019-12-16 10:08:07', '2019-12-17 15:33:48', '34', NULL);
+INSERT INTO `air_quality` VALUES (18, '长沙', '23', '24', '32', '31', '2019-12-18 10:10:59', NULL, '21', NULL);
+INSERT INTO `air_quality` VALUES (23, '衡阳', '23', '21', '24', '23', '2019-12-18 11:03:33', NULL, '34', NULL);
+INSERT INTO `air_quality` VALUES (24, '郴州', '21', '23', '23', '21', '2019-12-18 11:05:16', NULL, '23', NULL);
+INSERT INTO `air_quality` VALUES (25, '株洲', '24', '23', '24', '21', '2019-12-18 11:07:48', '2019-12-19 17:35:50', '21', NULL);
+INSERT INTO `air_quality` VALUES (32, '长沙', '23', '23', '23', '23', '2019-12-19 14:32:47', '2019-12-19 15:14:18', '50', NULL);
+
+-- ----------------------------
+-- Table structure for city_air_quality
+-- ----------------------------
+DROP TABLE IF EXISTS `city_air_quality`;
+CREATE TABLE `city_air_quality`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '城市名称',
+  `month` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '2019年月份',
+  `aqi` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '空气质量指数',
+  `pm25` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '细颗粒物PM2.5指数',
+  `pm10` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'PM10指数',
+  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of city_air_quality
+-- ----------------------------
+INSERT INTO `city_air_quality` VALUES (1, '长沙', '1', '130', '98', '60', '2020-01-02 16:09:51', '2020-01-02 16:40:33');
+INSERT INTO `city_air_quality` VALUES (2, '长沙', '2', '73', '53', '51', '2020-01-02 16:10:31', '2020-01-02 16:40:34');
+INSERT INTO `city_air_quality` VALUES (3, '长沙', '3', '68', '48', '64', '2020-01-02 16:11:03', '2020-01-02 16:40:35');
+INSERT INTO `city_air_quality` VALUES (4, '长沙', '4', '63', '38', '50', '2020-01-02 16:11:48', '2020-01-02 16:40:36');
+INSERT INTO `city_air_quality` VALUES (5, '长沙', '5', '74', '36', '63', '2020-01-02 16:12:24', '2020-01-02 16:40:38');
+INSERT INTO `city_air_quality` VALUES (6, '长沙', '6', '65', '23', '37', '2020-01-02 16:14:28', '2020-01-02 16:40:39');
+INSERT INTO `city_air_quality` VALUES (7, '长沙', '7', '65', '21', '36', '2020-01-02 16:15:17', '2020-01-02 16:40:41');
+INSERT INTO `city_air_quality` VALUES (8, '长沙', '8', '89', '28', '50', '2020-01-02 16:19:44', '2020-01-02 16:40:43');
+INSERT INTO `city_air_quality` VALUES (9, '长沙', '9', '108', '39', '66', '2020-01-02 16:21:03', '2020-01-02 16:40:44');
+INSERT INTO `city_air_quality` VALUES (10, '长沙', '10', '76', '44', '62', '2020-01-02 16:21:52', '2020-01-02 16:40:47');
+INSERT INTO `city_air_quality` VALUES (11, '长沙', '11', '86', '60', '76', '2020-01-02 16:22:32', '2020-01-02 16:40:48');
+INSERT INTO `city_air_quality` VALUES (13, '株洲', '1', '131', '98', '120', '2020-01-02 16:30:16', '2020-01-02 16:42:02');
+INSERT INTO `city_air_quality` VALUES (14, '株洲', '2', '70', '51', '61', '2020-01-02 16:31:07', '2020-01-02 16:43:24');
+INSERT INTO `city_air_quality` VALUES (15, '株洲', '3', '70', '50', '72', '2020-01-02 16:31:27', '2020-01-02 16:44:17');
+INSERT INTO `city_air_quality` VALUES (16, '长沙', '12', '104', '78', '75', '2020-01-02 16:42:35', NULL);
+INSERT INTO `city_air_quality` VALUES (17, '株洲', '4', '62', '41', '54', '2020-01-02 16:44:45', NULL);
+INSERT INTO `city_air_quality` VALUES (18, '株洲', '5', '66', '36', '64', '2020-01-02 16:45:07', NULL);
+INSERT INTO `city_air_quality` VALUES (19, '株洲', '6', '55', '24', '36', '2020-01-02 16:45:27', '2020-01-02 16:45:47');
+INSERT INTO `city_air_quality` VALUES (20, '株洲', '7', '56', '22', '31', '2020-01-02 16:46:17', NULL);
+INSERT INTO `city_air_quality` VALUES (21, '株洲', '8', '82', '27', '46', '2020-01-02 16:46:40', NULL);
+INSERT INTO `city_air_quality` VALUES (22, '株洲', '9', '106', '40', '67', '2020-01-02 16:47:08', NULL);
+INSERT INTO `city_air_quality` VALUES (23, '株洲', '10', '74', '46', '72', '2020-01-02 16:47:36', NULL);
+INSERT INTO `city_air_quality` VALUES (24, '株洲', '11', '81', '55', '86', '2020-01-02 16:48:02', NULL);
+INSERT INTO `city_air_quality` VALUES (25, '株洲', '12', '107', '80', '99', '2020-01-02 16:48:29', NULL);
 
 -- ----------------------------
 -- Table structure for city_pm25
@@ -85,8 +130,9 @@ CREATE TABLE `role`  (
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `role_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称(描述性)',
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `idIndex`(`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role
@@ -96,8 +142,8 @@ INSERT INTO `role` VALUES (2, 'user', '普通用户', '2019-12-23 09:46:07', '�
 INSERT INTO `role` VALUES (3, 'admin', '管理员1', '2019-12-24 13:26:33', '小南', '2019-12-24 13:26:52');
 INSERT INTO `role` VALUES (4, 'user', '普通用户2', '2019-12-24 13:27:29', '小英', NULL);
 INSERT INTO `role` VALUES (5, 'user', '普通用户3', '2019-12-24 13:28:03', '小智', NULL);
-INSERT INTO `role` VALUES (7, 'user', '普通用户张', '2019-12-24 16:10:03', '张无忌', NULL);
-INSERT INTO `role` VALUES (8, 'admin', '管理员，强哥', '2019-12-24 16:18:56', '强哥', NULL);
+INSERT INTO `role` VALUES (7, 'user', '普通用户张无忌', '2019-12-24 16:10:03', '张无忌', '2019-12-26 14:30:02');
+INSERT INTO `role` VALUES (8, 'admin', '管理员，强哥1', '2019-12-24 16:18:56', '强哥1', '2019-12-27 14:33:16');
 
 -- ----------------------------
 -- Table structure for user
@@ -110,15 +156,19 @@ CREATE TABLE `user`  (
   `role` int(12) NULL DEFAULT NULL COMMENT '用户角色，role关联字段',
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `is_able` int(10) NULL DEFAULT NULL COMMENT '是否可用(0: 禁用，1：可用）',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `roleIndex`(`role`) USING BTREE COMMENT '关联字段索引'
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'yuhanyi', '123', 1, '2019-12-11 09:37:56', NULL);
-INSERT INTO `user` VALUES (2, '托尼', '123', 2, '2019-12-23 09:47:03', NULL);
-INSERT INTO `user` VALUES (3, 'yhy', '123', 5, '2019-12-23 14:52:45', '2019-12-24 14:38:11');
-INSERT INTO `user` VALUES (4, '皮卡丘', '123', 2, '2019-12-23 14:56:48', NULL);
+INSERT INTO `user` VALUES (1, 'yuhanyi', '123', 1, '2019-12-11 09:37:56', '2019-12-31 11:04:22', 1);
+INSERT INTO `user` VALUES (2, '托尼', '123', 5, '2019-12-23 09:47:03', '2019-12-31 11:04:23', 1);
+INSERT INTO `user` VALUES (3, 'yhy', '123', 3, '2019-12-23 14:52:45', '2019-12-31 11:04:24', 1);
+INSERT INTO `user` VALUES (4, '皮卡丘', 'abc', 5, '2019-12-23 14:56:48', '2020-01-02 10:23:46', 1);
+INSERT INTO `user` VALUES (5, '你难拿', '234', 3, '2019-12-31 11:08:27', '2019-12-31 11:11:03', 0);
+INSERT INTO `user` VALUES (13, '南华', '123', 2, '2020-01-02 13:49:59', '2020-01-02 13:56:37', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

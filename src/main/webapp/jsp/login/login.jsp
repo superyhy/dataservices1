@@ -16,7 +16,7 @@
       <div class="login">
           <div class="login_logo"><a href="#"><img src="../../images/login/login_logo.png" /></a></div>
           <div class="login_name">
-               <p>数据分析平台</p>
+               <p>空气质量数据分析平台</p>
           </div>
               <div>
                   ${msg}

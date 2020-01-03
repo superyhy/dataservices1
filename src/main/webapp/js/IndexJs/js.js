@@ -314,7 +314,6 @@ function echarts_5() {
 function echarts_4() {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart4'));
-
     option = {
 	    tooltip: {
         trigger: 'axis',
@@ -326,7 +325,7 @@ function echarts_4() {
     },
 		    legend: {
     top:'0%',
-        data:['安卓','IOS'],
+        data:['长沙','株洲'],
                 textStyle: {
            color: 'rgba(255,255,255,.5)',
 			fontSize:'12',
@@ -356,7 +355,7 @@ axisLabel:  {
 
         },
 
-   data: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24']
+   data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 
     }, {
 
@@ -392,7 +391,7 @@ axisLabel:  {
     }],
     series: [
 		{
-        name: '安卓',
+        name: '长沙',
         type: 'line',
          smooth: true,
         symbol: 'circle',
@@ -424,11 +423,11 @@ axisLabel:  {
 				borderWidth: 12
 			}
 		},
-        data: [3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4,3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4]
+        data:[]
 
     }, 
 {
-        name: 'IOS',
+        name: '株洲',
         type: 'line',
         smooth: true,
         symbol: 'circle',
@@ -460,15 +459,35 @@ axisLabel:  {
 				borderWidth: 12
 			}
 		},
-        data: [5, 3, 5, 6, 1, 5, 3, 5, 6, 4, 6, 4, 8, 3, 5, 6, 1, 5, 3, 7, 2, 5, 1, 4]
+        data:[]
 
     }, 
 	
 		 ]
 
 };
-      
-        // 使用刚指定的配置项和数据显示图表。
+    //调用（/getCityPmList）接口获取数据
+    $.ajax({
+        type : "get",
+        url : "/getCityAqi",
+        dataType : "json",
+        success : function(result) {
+
+            myChart.setOption({
+                series: [{
+                    // 根据名字对应到相应的系列
+                    name: '长沙',
+                    data: result.changShaAqiList
+                },{
+                    name: '株洲',
+                    data: result.zhuZhouAqiList
+                }]
+            });
+        }
+
+    });
+
+    // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
         window.addEventListener("resize",function(){
             myChart.resize();
