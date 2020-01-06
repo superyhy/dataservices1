@@ -17,9 +17,9 @@ public class CityAirQuality {
   private long id;
   private String cityName;
   private String month;
-  private String aqi;
-  private String pm25;
-  private String pm10;
+  private Integer aqi;
+  private Integer pm25;
+  private Integer pm10;
   private Date createTime;
   private Date updateTime;
 

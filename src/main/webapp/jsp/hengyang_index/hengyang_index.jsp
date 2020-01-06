@@ -66,50 +66,10 @@
                 <div id="chart_3" class="echart" style="width: 100%; height: 3rem;"></div>
             </div>
             <div class="t_box">
-                <div class="main_table t_btn8">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>销售价格</th>
-                            <th>销售市场</th>
-                            <th>销售任务</th> 
-                            <th>销售量</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>21449</td>
-                            <td>26667</td>
-                            <td>18248</td>
-                            <td>20166</td>
-                        </tr>
-                        <tr>
-                            <td>12227</td>
-                            <td>21140</td>
-                            <td>18208</td>
-                            <td>20115</td>
-                        </tr>
-                        <tr>
-                            <td>14977</td>
-                            <td>20505</td>
-                            <td>25342</td>
-                            <td>20114</td>
-                        </tr>
-                        <tr>
-                            <td>17494</td>
-                            <td>19647</td>
-                            <td>20227</td>
-                            <td>20135</td>
-                        </tr>
-                        <tr>
-                            <td>16493</td>
-                            <td>18812</td>
-                            <td>20394</td>
-                            <td>20124</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <header class="t_title">
+                    <span>2019年衡阳市AQI与PM2.5关系图</span>
+                </header>
+                <div id="chart_4" class="echart" style="width: 100%; height: 3rem;"></div>
             </div>
         </main>
 </div>

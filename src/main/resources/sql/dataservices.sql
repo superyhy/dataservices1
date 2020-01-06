@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 02/01/2020 16:49:33
+ Date: 06/01/2020 16:05:36
 */
 
 SET NAMES utf8mb4;
@@ -61,42 +61,78 @@ DROP TABLE IF EXISTS `city_air_quality`;
 CREATE TABLE `city_air_quality`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `city_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '城市名称',
-  `month` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '2019年月份',
-  `aqi` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '空气质量指数',
-  `pm25` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '细颗粒物PM2.5指数',
-  `pm10` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'PM10指数',
+  `month` int(20) NULL DEFAULT NULL COMMENT '2019年月份',
+  `aqi` int(20) NULL DEFAULT NULL COMMENT '空气质量指数',
+  `pm25` int(30) NULL DEFAULT NULL COMMENT '细颗粒物PM2.5指数',
+  `pm10` int(255) NULL DEFAULT NULL COMMENT 'PM10指数',
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of city_air_quality
 -- ----------------------------
-INSERT INTO `city_air_quality` VALUES (1, '长沙', '1', '130', '98', '60', '2020-01-02 16:09:51', '2020-01-02 16:40:33');
-INSERT INTO `city_air_quality` VALUES (2, '长沙', '2', '73', '53', '51', '2020-01-02 16:10:31', '2020-01-02 16:40:34');
-INSERT INTO `city_air_quality` VALUES (3, '长沙', '3', '68', '48', '64', '2020-01-02 16:11:03', '2020-01-02 16:40:35');
-INSERT INTO `city_air_quality` VALUES (4, '长沙', '4', '63', '38', '50', '2020-01-02 16:11:48', '2020-01-02 16:40:36');
-INSERT INTO `city_air_quality` VALUES (5, '长沙', '5', '74', '36', '63', '2020-01-02 16:12:24', '2020-01-02 16:40:38');
-INSERT INTO `city_air_quality` VALUES (6, '长沙', '6', '65', '23', '37', '2020-01-02 16:14:28', '2020-01-02 16:40:39');
-INSERT INTO `city_air_quality` VALUES (7, '长沙', '7', '65', '21', '36', '2020-01-02 16:15:17', '2020-01-02 16:40:41');
-INSERT INTO `city_air_quality` VALUES (8, '长沙', '8', '89', '28', '50', '2020-01-02 16:19:44', '2020-01-02 16:40:43');
-INSERT INTO `city_air_quality` VALUES (9, '长沙', '9', '108', '39', '66', '2020-01-02 16:21:03', '2020-01-02 16:40:44');
-INSERT INTO `city_air_quality` VALUES (10, '长沙', '10', '76', '44', '62', '2020-01-02 16:21:52', '2020-01-02 16:40:47');
-INSERT INTO `city_air_quality` VALUES (11, '长沙', '11', '86', '60', '76', '2020-01-02 16:22:32', '2020-01-02 16:40:48');
-INSERT INTO `city_air_quality` VALUES (13, '株洲', '1', '131', '98', '120', '2020-01-02 16:30:16', '2020-01-02 16:42:02');
-INSERT INTO `city_air_quality` VALUES (14, '株洲', '2', '70', '51', '61', '2020-01-02 16:31:07', '2020-01-02 16:43:24');
-INSERT INTO `city_air_quality` VALUES (15, '株洲', '3', '70', '50', '72', '2020-01-02 16:31:27', '2020-01-02 16:44:17');
-INSERT INTO `city_air_quality` VALUES (16, '长沙', '12', '104', '78', '75', '2020-01-02 16:42:35', NULL);
-INSERT INTO `city_air_quality` VALUES (17, '株洲', '4', '62', '41', '54', '2020-01-02 16:44:45', NULL);
-INSERT INTO `city_air_quality` VALUES (18, '株洲', '5', '66', '36', '64', '2020-01-02 16:45:07', NULL);
-INSERT INTO `city_air_quality` VALUES (19, '株洲', '6', '55', '24', '36', '2020-01-02 16:45:27', '2020-01-02 16:45:47');
-INSERT INTO `city_air_quality` VALUES (20, '株洲', '7', '56', '22', '31', '2020-01-02 16:46:17', NULL);
-INSERT INTO `city_air_quality` VALUES (21, '株洲', '8', '82', '27', '46', '2020-01-02 16:46:40', NULL);
-INSERT INTO `city_air_quality` VALUES (22, '株洲', '9', '106', '40', '67', '2020-01-02 16:47:08', NULL);
-INSERT INTO `city_air_quality` VALUES (23, '株洲', '10', '74', '46', '72', '2020-01-02 16:47:36', NULL);
-INSERT INTO `city_air_quality` VALUES (24, '株洲', '11', '81', '55', '86', '2020-01-02 16:48:02', NULL);
-INSERT INTO `city_air_quality` VALUES (25, '株洲', '12', '107', '80', '99', '2020-01-02 16:48:29', NULL);
+INSERT INTO `city_air_quality` VALUES (1, '长沙', 1, 130, 98, 60, '2020-01-02 16:09:51', '2020-01-02 16:40:33');
+INSERT INTO `city_air_quality` VALUES (2, '长沙', 2, 73, 53, 51, '2020-01-02 16:10:31', '2020-01-02 16:40:34');
+INSERT INTO `city_air_quality` VALUES (3, '长沙', 3, 68, 48, 64, '2020-01-02 16:11:03', '2020-01-02 16:40:35');
+INSERT INTO `city_air_quality` VALUES (4, '长沙', 4, 63, 38, 50, '2020-01-02 16:11:48', '2020-01-02 16:40:36');
+INSERT INTO `city_air_quality` VALUES (5, '长沙', 5, 74, 36, 63, '2020-01-02 16:12:24', '2020-01-02 16:40:38');
+INSERT INTO `city_air_quality` VALUES (6, '长沙', 6, 65, 23, 37, '2020-01-02 16:14:28', '2020-01-02 16:40:39');
+INSERT INTO `city_air_quality` VALUES (7, '长沙', 7, 65, 21, 36, '2020-01-02 16:15:17', '2020-01-02 16:40:41');
+INSERT INTO `city_air_quality` VALUES (8, '长沙', 8, 89, 28, 50, '2020-01-02 16:19:44', '2020-01-02 16:40:43');
+INSERT INTO `city_air_quality` VALUES (9, '长沙', 9, 108, 39, 66, '2020-01-02 16:21:03', '2020-01-02 16:40:44');
+INSERT INTO `city_air_quality` VALUES (10, '长沙', 10, 76, 44, 62, '2020-01-02 16:21:52', '2020-01-02 16:40:47');
+INSERT INTO `city_air_quality` VALUES (11, '长沙', 11, 86, 60, 76, '2020-01-02 16:22:32', '2020-01-02 16:40:48');
+INSERT INTO `city_air_quality` VALUES (13, '株洲', 1, 131, 98, 120, '2020-01-02 16:30:16', '2020-01-02 16:42:02');
+INSERT INTO `city_air_quality` VALUES (14, '株洲', 2, 70, 51, 61, '2020-01-02 16:31:07', '2020-01-02 16:43:24');
+INSERT INTO `city_air_quality` VALUES (15, '株洲', 3, 70, 50, 72, '2020-01-02 16:31:27', '2020-01-02 16:44:17');
+INSERT INTO `city_air_quality` VALUES (16, '长沙', 12, 104, 78, 75, '2020-01-02 16:42:35', NULL);
+INSERT INTO `city_air_quality` VALUES (17, '株洲', 4, 62, 41, 54, '2020-01-02 16:44:45', NULL);
+INSERT INTO `city_air_quality` VALUES (18, '株洲', 5, 66, 36, 64, '2020-01-02 16:45:07', NULL);
+INSERT INTO `city_air_quality` VALUES (19, '株洲', 6, 55, 24, 36, '2020-01-02 16:45:27', '2020-01-02 16:45:47');
+INSERT INTO `city_air_quality` VALUES (20, '株洲', 7, 56, 22, 31, '2020-01-02 16:46:17', NULL);
+INSERT INTO `city_air_quality` VALUES (21, '株洲', 8, 82, 27, 46, '2020-01-02 16:46:40', NULL);
+INSERT INTO `city_air_quality` VALUES (22, '株洲', 9, 106, 40, 67, '2020-01-02 16:47:08', NULL);
+INSERT INTO `city_air_quality` VALUES (23, '株洲', 10, 74, 46, 72, '2020-01-02 16:47:36', NULL);
+INSERT INTO `city_air_quality` VALUES (24, '株洲', 11, 81, 55, 86, '2020-01-02 16:48:02', NULL);
+INSERT INTO `city_air_quality` VALUES (25, '株洲', 12, 107, 80, 99, '2020-01-02 16:48:29', NULL);
+INSERT INTO `city_air_quality` VALUES (26, '衡阳', 1, 114, 85, 100, '2020-01-06 13:53:47', NULL);
+INSERT INTO `city_air_quality` VALUES (27, '衡阳', 2, 60, 42, 52, '2020-01-06 13:54:21', NULL);
+INSERT INTO `city_air_quality` VALUES (28, '衡阳', 3, 60, 40, 60, '2020-01-06 13:55:03', NULL);
+INSERT INTO `city_air_quality` VALUES (29, '衡阳', 4, 48, 26, 45, '2020-01-06 13:55:43', NULL);
+INSERT INTO `city_air_quality` VALUES (30, '衡阳', 5, 61, 34, 64, '2020-01-06 13:56:07', NULL);
+INSERT INTO `city_air_quality` VALUES (31, '衡阳', 6, 56, 23, 43, '2020-01-06 13:56:30', NULL);
+INSERT INTO `city_air_quality` VALUES (32, '衡阳', 7, 48, 19, 37, '2020-01-06 13:57:21', NULL);
+INSERT INTO `city_air_quality` VALUES (33, '衡阳', 8, 75, 28, 54, '2020-01-06 13:57:55', NULL);
+INSERT INTO `city_air_quality` VALUES (34, '衡阳', 9, 96, 38, 69, '2020-01-06 13:58:36', NULL);
+INSERT INTO `city_air_quality` VALUES (35, '衡阳', 10, 70, 43, 74, '2020-01-06 13:58:58', NULL);
+INSERT INTO `city_air_quality` VALUES (36, '衡阳', 11, 76, 51, 91, '2020-01-06 13:59:19', NULL);
+INSERT INTO `city_air_quality` VALUES (37, '衡阳', 12, 96, 71, 92, '2020-01-06 13:59:54', NULL);
+INSERT INTO `city_air_quality` VALUES (38, '岳阳', 1, 107, 80, 107, '2020-01-06 14:01:42', '2020-01-06 14:01:56');
+INSERT INTO `city_air_quality` VALUES (39, '岳阳', 2, 73, 54, 67, '2020-01-06 14:02:22', NULL);
+INSERT INTO `city_air_quality` VALUES (40, '岳阳', 3, 61, 38, 67, '2020-01-06 14:02:53', NULL);
+INSERT INTO `city_air_quality` VALUES (41, '岳阳', 4, 63, 36, 59, '2020-01-06 14:03:12', '2020-01-06 14:03:22');
+INSERT INTO `city_air_quality` VALUES (42, '岳阳', 5, 76, 38, 74, '2020-01-06 14:04:23', NULL);
+INSERT INTO `city_air_quality` VALUES (43, '岳阳', 6, 77, 27, 41, '2020-01-06 14:04:44', NULL);
+INSERT INTO `city_air_quality` VALUES (44, '岳阳', 7, 71, 26, 40, '2020-01-06 14:05:14', NULL);
+INSERT INTO `city_air_quality` VALUES (45, '岳阳', 8, 85, 32, 50, '2020-01-06 14:05:42', NULL);
+INSERT INTO `city_air_quality` VALUES (46, '岳阳', 9, 99, 40, 67, '2020-01-06 14:06:25', NULL);
+INSERT INTO `city_air_quality` VALUES (47, '岳阳', 10, 66, 39, 66, '2020-01-06 14:06:57', NULL);
+INSERT INTO `city_air_quality` VALUES (48, '岳阳', 11, 74, 50, 86, '2020-01-06 14:07:22', NULL);
+INSERT INTO `city_air_quality` VALUES (49, '岳阳', 12, 86, 63, 92, '2020-01-06 14:07:41', NULL);
+INSERT INTO `city_air_quality` VALUES (50, '郴州', 1, 75, 52, 77, '2020-01-06 14:10:37', NULL);
+INSERT INTO `city_air_quality` VALUES (51, '郴州', 2, 42, 26, 41, '2020-01-06 14:10:37', NULL);
+INSERT INTO `city_air_quality` VALUES (52, '郴州', 3, 49, 31, 51, '2020-01-06 14:12:38', NULL);
+INSERT INTO `city_air_quality` VALUES (53, '郴州', 4, 45, 19, 39, '2020-01-06 14:12:57', NULL);
+INSERT INTO `city_air_quality` VALUES (54, '郴州', 5, 54, 28, 56, '2020-01-06 14:13:19', NULL);
+INSERT INTO `city_air_quality` VALUES (55, '郴州', 6, 46, 16, 38, '2020-01-06 14:13:38', NULL);
+INSERT INTO `city_air_quality` VALUES (56, '郴州', 7, 43, 15, 34, '2020-01-06 14:13:59', NULL);
+INSERT INTO `city_air_quality` VALUES (57, '郴州', 8, 66, 22, 44, '2020-01-06 14:14:10', '2020-01-06 14:14:23');
+INSERT INTO `city_air_quality` VALUES (58, '郴州', 9, 87, 34, 63, '2020-01-06 14:14:46', NULL);
+INSERT INTO `city_air_quality` VALUES (59, '郴州', 10, 63, 35, 52, '2020-01-06 14:15:02', NULL);
+INSERT INTO `city_air_quality` VALUES (60, '郴州', 11, 67, 42, 67, '2020-01-06 14:15:19', NULL);
+INSERT INTO `city_air_quality` VALUES (61, '郴州', 12, 65, 45, 63, '2020-01-06 14:15:35', NULL);
 
 -- ----------------------------
 -- Table structure for city_pm25
@@ -159,7 +195,7 @@ CREATE TABLE `user`  (
   `is_able` int(10) NULL DEFAULT NULL COMMENT '是否可用(0: 禁用，1：可用）',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `roleIndex`(`role`) USING BTREE COMMENT '关联字段索引'
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user

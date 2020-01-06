@@ -86,12 +86,12 @@
     <ul class="clearfix">
         <li>
             <div class="boxall" style="height: 3.2rem">
-                <div class="alltitle">湖南省当月各市PM2.5平均值</div>
+                <div class="alltitle">2019湖南省各市PM2.5平均值</div>
                 <div class="allnav" id="echart1"></div>
                 <div class="boxfoot"></div>
             </div>
             <div class="boxall" style="height: 3.2rem">
-                <div class="alltitle">模块标题样式</div>
+                <div class="alltitle">2019湖南省各市AQI平均值</div>
                 <div class="allnav" id="echart2"></div>
                 <div class="boxfoot"></div>
             </div>
@@ -110,14 +110,14 @@
             <div class="bar">
                 <div class="barbox">
                     <ul class="clearfix">
-                        <li class="pulll_left counter">89</li>
-                        <li class="pulll_left counter">3912410</li>
+                        <li class="pulll_left counter">0-50</li>
+                        <li class="pulll_left counter">51-100</li>
                     </ul>
                 </div>
                 <div class="barbox2">
                     <ul class="clearfix">
-                        <li class="pulll_left">2019年AQI平均值</li>
-                        <li class="pulll_left">2019年PM2.5平均值</li>
+                        <li class="pulll_left">优（AQI范围）</li>
+                        <li class="pulll_left">良（AQI范围）</li>
                     </ul>
                 </div>
             </div>

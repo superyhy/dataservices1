@@ -103,12 +103,12 @@ function echarts_1() {
     //调用（/getCityPmList）接口获取数据
     $.ajax({
         type : "get",
-        url : "/getCityPmList",
+        url : "/getPm25Avg",
         dataType : "json",
         success : function(result) {
             myChart.setOption({
                 xAxis:{data: result.cityNameList},
-                series:{data: result.pm25List}
+                series:{data: result.pm25AvgList}
             })
         }
     });
@@ -138,7 +138,7 @@ function echarts_2() {
     },
     xAxis: [{
         type: 'category',
-      		data: ['浙江', '上海', '江苏', '广东', '北京', '深圳', '安徽'],
+      		data: [],
         axisLine: {
             show: true,
          lineStyle: {
@@ -193,7 +193,7 @@ function echarts_2() {
 		{
        
         type: 'bar',
-        data: [1500, 1200, 600, 200, 300, 300, 900],
+        data: [],
         barWidth:'35%', //柱子宽度
        // barGap: 1, //柱子之间间距
         itemStyle: {
@@ -208,6 +208,18 @@ function echarts_2() {
 	]
 
 };
+    //调用（/getCityPmList）接口获取数据
+    $.ajax({
+        type : "get",
+        url : "/getAqiAvg",
+        dataType : "json",
+        success : function(result) {
+            myChart.setOption({
+                xAxis:{data: result.cityNameList},
+                series:{data: result.aqiAvgList}
+            })
+        }
+    });
       
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);

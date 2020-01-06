@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yhy.dataservices.dao.CityPmDAO">
-    <select id="getCityPm25List" resultType="com.yhy.dataservices.entity.CityPm25">
-        select * from city_pm25 where 1=1
-    </select>
-</mapper>

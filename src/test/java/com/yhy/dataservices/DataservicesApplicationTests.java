@@ -3,6 +3,8 @@ package com.yhy.dataservices;
 import com.yhy.dataservices.dao.AccessDAO;
 import com.yhy.dataservices.dao.CityAirQualityDAO;
 import com.yhy.dataservices.dao.UserDAO;
+import com.yhy.dataservices.dto.cityAirQuality.AqiAvgDTO;
+import com.yhy.dataservices.dto.cityAirQuality.Pm25AvgDTO;
 import com.yhy.dataservices.entity.CityAirQuality;
 import com.yhy.dataservices.entity.Role;
 import com.yhy.dataservices.entity.User;
@@ -78,5 +80,17 @@ class DataservicesApplicationTests {
         List<CityAirQuality> resultList=new ArrayList<>();
         resultList=cityAirQualityDAO.getCityAirQualityByCityName(cityNames);
         System.out.println(resultList);
+
+        List<AqiAvgDTO> AqiAvgList=new ArrayList<>();
+        AqiAvgList=cityAirQualityDAO.getCityAqiAvg();
+        for(int i=0;i<AqiAvgList.size();i++){
+            System.out.println(AqiAvgList.get(i));
+        }
+
+        List<Pm25AvgDTO> Pm25AvgList=null;
+        Pm25AvgList=cityAirQualityDAO.getCityPm25Avg();
+        for(int i=0;i<Pm25AvgList.size();i++){
+            System.out.println(Pm25AvgList.get(i));
+        }
    }
 }

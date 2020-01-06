@@ -19,4 +19,17 @@ public class CityAirQualityController {
     public Map<String,Object> getCityAqi(){
         return  cityAirQualityService.getCityAqi();
     }
+
+
+    @GetMapping("/getAqiAvg")
+    @ResponseBody
+    public Map<String,Object> getAqiAvg(){
+        return cityAirQualityService.getAqiAvg();
+    }
+
+    @GetMapping("/getPm25Avg")
+    @ResponseBody
+    public Map<String,Object> getPm25Avg(){
+        return cityAirQualityService.getPm25Avg();
+    }
 }

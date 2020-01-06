@@ -16,4 +16,24 @@
         month
         asc
     </select>
+
+    <select id="getCityAqiAvg" resultType="com.yhy.dataservices.dto.cityAirQuality.AqiAvgDTO">
+        select
+        city_name as cityName,
+        avg(aqi) as aqiAvg
+        from
+        city_air_quality
+        group by
+        city_name
+    </select>
+
+    <select id="getCityPm25Avg" resultType="com.yhy.dataservices.dto.cityAirQuality.Pm25AvgDTO">
+        select
+        city_name ,
+        avg(pm25) as pm25Avg
+        from
+        city_air_quality
+        group by
+        city_name
+    </select>
 </mapper>
