@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface CityAirQualityDAO {
@@ -29,5 +30,32 @@ public interface CityAirQualityDAO {
      * @return
      */
     List<Pm25AvgDTO> getCityPm25Avg();
+
+    /**
+     * 获取空气质量为优
+     * @return
+     */
+    Integer getAirQualitySuperior(String cityName);
+
+    /**
+     * 获取空气质量为良
+     * @param cityName
+     * @return
+     */
+    Integer getAirQualityFine(String cityName);
+
+    /**
+     * 获取空气质量为轻度污染
+     * @param cityName
+     * @return
+     */
+    Integer getAirQualityMild(String cityName);
+
+    /**
+     * 获取空气质量为中度污染
+     * @param cityName
+     * @return
+     */
+    Integer getAirQualityMiddle(String cityName);
 
 }

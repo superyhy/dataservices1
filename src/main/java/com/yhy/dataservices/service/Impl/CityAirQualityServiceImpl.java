@@ -2,6 +2,7 @@ package com.yhy.dataservices.service.Impl;
 
 import com.yhy.dataservices.dao.CityAirQualityDAO;
 import com.yhy.dataservices.dto.cityAirQuality.AqiAvgDTO;
+import com.yhy.dataservices.dto.cityAirQuality.EchartsDTO;
 import com.yhy.dataservices.dto.cityAirQuality.Pm25AvgDTO;
 import com.yhy.dataservices.entity.CityAirQuality;
 import com.yhy.dataservices.service.CityAirQualityService;
@@ -110,6 +111,41 @@ public class CityAirQualityServiceImpl implements CityAirQualityService {
         resultMap.put("pm25AvgList",pm25AvgList);
 
         return resultMap;
+    }
 
+    @Override
+    public List<EchartsDTO> getChangshaAirQuality() {
+
+         String cityName="长沙";
+         List<EchartsDTO> resultList=new ArrayList<>();
+         resultList.add(new EchartsDTO("优",cityAirQualityDAO.getAirQualitySuperior(cityName)));
+         resultList.add(new EchartsDTO("良",cityAirQualityDAO.getAirQualityFine(cityName)));
+         resultList.add(new EchartsDTO("轻度污染",cityAirQualityDAO.getAirQualityMild(cityName)));
+         resultList.add(new EchartsDTO("中度污染",cityAirQualityDAO.getAirQualityMiddle(cityName)));
+         return resultList;
+    }
+
+    @Override
+    public List<EchartsDTO> getYueYangAirQuality() {
+
+        String cityName="岳阳";
+        List<EchartsDTO> resultList=new ArrayList<>();
+        resultList.add(new EchartsDTO("优",cityAirQualityDAO.getAirQualitySuperior(cityName)));
+        resultList.add(new EchartsDTO("良",cityAirQualityDAO.getAirQualityFine(cityName)));
+        resultList.add(new EchartsDTO("轻度污染",cityAirQualityDAO.getAirQualityMild(cityName)));
+        resultList.add(new EchartsDTO("中度污染",cityAirQualityDAO.getAirQualityMiddle(cityName)));
+        return resultList;
+    }
+
+    @Override
+    public List<EchartsDTO> getChenZhouAirQuality() {
+
+        String cityName="郴州";
+        List<EchartsDTO> resultList=new ArrayList<>();
+        resultList.add(new EchartsDTO("优",cityAirQualityDAO.getAirQualitySuperior(cityName)));
+        resultList.add(new EchartsDTO("良",cityAirQualityDAO.getAirQualityFine(cityName)));
+        resultList.add(new EchartsDTO("轻度污染",cityAirQualityDAO.getAirQualityMild(cityName)));
+        resultList.add(new EchartsDTO("中度污染",cityAirQualityDAO.getAirQualityMiddle(cityName)));
+        return resultList;
     }
 }

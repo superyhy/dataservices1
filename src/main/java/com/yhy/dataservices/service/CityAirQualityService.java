@@ -1,5 +1,7 @@
 package com.yhy.dataservices.service;
 
+import com.yhy.dataservices.dto.cityAirQuality.EchartsDTO;
+
 import java.util.List;
 import java.util.Map;
 
@@ -23,5 +25,24 @@ public interface CityAirQualityService {
      * @return
      */
     Map<String,Object> getPm25Avg();
+
+    /**
+     * 长沙市饼图
+     * @param
+     * @return
+     */
+    List<EchartsDTO> getChangshaAirQuality();
+
+    /**
+     * 岳阳市饼图
+     * @return
+     */
+    List<EchartsDTO> getYueYangAirQuality();
+
+    /**
+     * 郴州市饼图
+     * @return
+     */
+    List<EchartsDTO> getChenZhouAirQuality();
 
 }

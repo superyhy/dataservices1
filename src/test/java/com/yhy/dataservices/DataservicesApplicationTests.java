@@ -93,4 +93,15 @@ class DataservicesApplicationTests {
             System.out.println(Pm25AvgList.get(i));
         }
    }
+
+   @Test
+    public void getChangShaDAO(){
+        Integer you;
+        you=cityAirQualityDAO.getAirQualityFine("长沙");
+        Integer liang=cityAirQualityDAO.getAirQualityMild("长沙");
+        System.out.println(you);
+        System.out.println(liang);
+
+   }
+
 }

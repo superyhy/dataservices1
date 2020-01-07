@@ -36,4 +36,20 @@
         group by
         city_name
     </select>
+
+    <select id="getAirQualitySuperior" resultType="java.lang.Integer">
+        select count(*) from city_air_quality where (aqi between 0 and 50) and city_name=#{cityName}
+    </select>
+
+    <select id="getAirQualityFine" resultType="java.lang.Integer">
+        select count(*) from city_air_quality where (aqi between 51 and 100) and city_name=#{cityName}
+    </select>
+
+    <select id="getAirQualityMild" resultType="java.lang.Integer">
+        select count(*) from city_air_quality where (aqi between 101 and 150) and city_name=#{cityName}
+    </select>
+
+    <select id="getAirQualityMiddle" resultType="java.lang.Integer">
+        select count(*) from city_air_quality where (aqi between 151 and 200) and city_name=#{cityName}
+    </select>
 </mapper>
