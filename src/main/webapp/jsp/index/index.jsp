@@ -135,12 +135,12 @@
                 <div class="boxfoot"></div>
             </div>
             <div class="boxall" style="height: 3.2rem">
-                <div class="alltitle">模块标题样式</div>
+                <div class="alltitle">2019年衡阳,岳阳及郴州三市PM2.5比较</div>
                 <div class="allnav" id="echart5"></div>
                 <div class="boxfoot"></div>
             </div>
             <div class="boxall" style="height: 3rem">
-                <div class="alltitle">模块标题样式</div>
+                <div class="alltitle">2019年湖南省各市PM10平均值</div>
                 <div class="allnav" id="echart6"></div>
                 <div class="boxfoot"></div>
             </div>

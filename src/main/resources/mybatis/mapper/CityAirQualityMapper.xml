@@ -52,4 +52,14 @@
     <select id="getAirQualityMiddle" resultType="java.lang.Integer">
         select count(*) from city_air_quality where (aqi between 151 and 200) and city_name=#{cityName}
     </select>
+
+    <select id="getPm10Avg" resultType="com.yhy.dataservices.dto.cityAirQuality.Pm10AvgDTO">
+        select
+        city_name,
+        avg(pm10) as pm10Avg
+        from
+        city_air_quality
+        group by
+        city_name
+    </select>
 </mapper>

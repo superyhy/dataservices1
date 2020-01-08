@@ -8,8 +8,8 @@ $(function () {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('chart_1'));
         var xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12','13','14','15','16','17','18','19','20'];
-        var legendData = ['3月', '4月'];
-        var title = "2018年度3月,4月销售额";//标题
+        var legendData = ['2018年', '2019年'];
+        var title = "2018-2019衡阳市AQI指数走势比较";//标题
         var serieData = [];
         var metaDate = [
             [1200, 1400, 1000, 1200, 3000, 2300, 1300, 1700, 1400, 1200, 3000, 2300, 2400, 2100, 2800, 3100, 3000, 2800, 2700, 2900],

@@ -4,6 +4,7 @@ import com.yhy.dataservices.dao.AccessDAO;
 import com.yhy.dataservices.dao.CityAirQualityDAO;
 import com.yhy.dataservices.dao.UserDAO;
 import com.yhy.dataservices.dto.cityAirQuality.AqiAvgDTO;
+import com.yhy.dataservices.dto.cityAirQuality.Pm10AvgDTO;
 import com.yhy.dataservices.dto.cityAirQuality.Pm25AvgDTO;
 import com.yhy.dataservices.entity.CityAirQuality;
 import com.yhy.dataservices.entity.Role;
@@ -102,6 +103,15 @@ class DataservicesApplicationTests {
         System.out.println(you);
         System.out.println(liang);
 
+   }
+
+   @Test
+   public void getCityPm10DAO(){
+        List<Pm10AvgDTO> resultList=new ArrayList<>();
+        resultList=cityAirQualityDAO.getPm10Avg();
+        for(Pm10AvgDTO pm10DTO:resultList){
+            System.out.println(pm10DTO);
+        }
    }
 
 }

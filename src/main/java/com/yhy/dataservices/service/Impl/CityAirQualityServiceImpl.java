@@ -3,6 +3,7 @@ package com.yhy.dataservices.service.Impl;
 import com.yhy.dataservices.dao.CityAirQualityDAO;
 import com.yhy.dataservices.dto.cityAirQuality.AqiAvgDTO;
 import com.yhy.dataservices.dto.cityAirQuality.EchartsDTO;
+import com.yhy.dataservices.dto.cityAirQuality.Pm10AvgDTO;
 import com.yhy.dataservices.dto.cityAirQuality.Pm25AvgDTO;
 import com.yhy.dataservices.entity.CityAirQuality;
 import com.yhy.dataservices.service.CityAirQualityService;
@@ -146,6 +147,58 @@ public class CityAirQualityServiceImpl implements CityAirQualityService {
         resultList.add(new EchartsDTO("良",cityAirQualityDAO.getAirQualityFine(cityName)));
         resultList.add(new EchartsDTO("轻度污染",cityAirQualityDAO.getAirQualityMild(cityName)));
         resultList.add(new EchartsDTO("中度污染",cityAirQualityDAO.getAirQualityMiddle(cityName)));
+        return resultList;
+    }
+
+    @Override
+    public Map<String, Object> getCityPM25() {
+        List<String> cityNames=new ArrayList<>();
+        cityNames.add("衡阳");
+        cityNames.add("岳阳");
+        cityNames.add("郴州");
+
+        Map<String,Object> resultMap=new HashMap<>();
+        List<CityAirQuality> targetList;
+
+        try{
+            targetList=cityAirQualityDAO.getCityAirQualityByCityName(cityNames);
+        } catch (Exception e) {
+            log.error("{} 查询三市PM2.5数据失败 ",getClass(),e);
+            throw e;
+        }
+
+        //筛选出三市的PM2.5数据
+        List<Integer> hengYangPm25=targetList.stream()
+                                             .filter(i->i.getCityName().equals("衡阳"))
+                                             .map(i->i.getPm25()).collect(Collectors.toList());
+
+        List<Integer> yueYangPm25=targetList.stream()
+                                             .filter(i->i.getCityName().equals("岳阳"))
+                                             .map(i->i.getPm25()).collect(Collectors.toList());
+
+        List<Integer> chenZhouPm25=targetList.stream()
+                                            .filter(i->i.getCityName().equals("郴州"))
+                                            .map(i->i.getPm25()).collect(Collectors.toList());
+
+        resultMap.put("hengYangPm25",hengYangPm25);
+        resultMap.put("yueYangPm25",yueYangPm25);
+        resultMap.put("chenZhouPm25",chenZhouPm25);
+
+        return resultMap;
+    }
+
+    @Override
+    public List<Pm10AvgDTO> getPm10Avg() {
+
+        List<Pm10AvgDTO> resultList;
+
+        try{
+            resultList=cityAirQualityDAO.getPm10Avg();
+        } catch (Exception e) {
+            log.error("{} 获取pm10平均值失败 ",getClass(),e);
+            throw e;
+        }
+
         return resultList;
     }
 }

@@ -1,6 +1,8 @@
 package com.yhy.dataservices.controller;
 
 import com.yhy.dataservices.dto.cityAirQuality.EchartsDTO;
+import com.yhy.dataservices.dto.cityAirQuality.Pm10AvgDTO;
+import com.yhy.dataservices.entity.CityAirQuality;
 import com.yhy.dataservices.service.CityAirQualityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,6 +53,20 @@ public class CityAirQualityController {
     @ResponseBody
     public List<EchartsDTO> getChenZhouAirQuality(){
         return cityAirQualityService.getChenZhouAirQuality();
+    }
+
+
+    @GetMapping("/getCityPm25")
+    @ResponseBody
+    public Map<String, Object> getCityPm25(){
+        return cityAirQualityService.getCityPM25();
+    }
+
+
+    @GetMapping("/getPm10Avg")
+    @ResponseBody
+    public List<Pm10AvgDTO> getPm10Avg(){
+        return cityAirQualityService.getPm10Avg();
     }
 
 }

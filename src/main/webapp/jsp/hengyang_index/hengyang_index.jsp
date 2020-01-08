@@ -43,14 +43,8 @@
         <main class="t_main">
             <div class="t_box">
                 <header class="t_title">
-                    <span>本月销售额</span>
-                    <span class="t_number">230000.00</span>
+                    <span>2018-2019衡阳市AQI指数走势比较</span>
                 </header>
-                <div class="t_list">
-                    <div class="t_min">订单量 <i></i></div>
-                    <div class="t_min">客流量 100 <i></i></div>
-                    <div class="t_min">转换率 8% <i class="down"></i></div>
-                </div>
                 <div id="chart_1" class="echart" style="width: 100%; height: 2.4rem;"></div>
             </div>
             <div class="t_box">
