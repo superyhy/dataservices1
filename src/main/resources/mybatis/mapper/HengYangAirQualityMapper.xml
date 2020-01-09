@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhy.dataservices.dao.HengYangAirQualityDAO">
+    <select id="getAqi2018" resultType="java.lang.Integer">
+        select
+        aqi
+        from
+        city_air_quality_2018
+        where
+        city_name=#{cityName}
+        order by
+        month
+    </select>
+
+    <select id="getAirQualitySuperior" resultType="java.lang.Integer">
+        select count(*) from city_air_quality_2018 where (aqi between 0 and 50) and city_name=#{cityName}
+    </select>
+
+    <select id="getAirQualityFine" resultType="java.lang.Integer">
+        select count(*) from city_air_quality_2018 where (aqi between 51 and 100) and city_name=#{cityName}
+    </select>
+
+    <select id="getAirQualityMild" resultType="java.lang.Integer">
+        select count(*) from city_air_quality_2018 where (aqi between 101 and 150) and city_name=#{cityName}
+    </select>
+
+    <select id="getAirQualityMiddle" resultType="java.lang.Integer">
+        select count(*) from city_air_quality_2018 where (aqi between 151 and 200) and city_name=#{cityName}
+    </select>
+
+</mapper>

@@ -49,9 +49,11 @@
             </div>
             <div class="t_box">
                 <header class="t_title">
-                    <span>商品销售统计</span>
+                    <span>2018-2019衡阳市空气质量</span>
                 </header>
-                <div id="chart_2" class="echart" style="width: 100%; height: 3rem;"></div>
+                <div id="chart_2" class="echart" style="width: 50%; height: 3rem; float:left;border:1px "></div>
+                <div id="chart_21" class="echart" style="width: 50%; height: 3rem;float:left;border:1px  "></div>
+
             </div>
             <div class="t_box">
                 <header class="t_title">

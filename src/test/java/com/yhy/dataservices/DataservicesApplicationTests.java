@@ -1,6 +1,7 @@
 package com.yhy.dataservices;
 
 import com.yhy.dataservices.dao.AccessDAO;
+import com.yhy.dataservices.dao.HengYangAirQualityDAO;
 import com.yhy.dataservices.dao.CityAirQualityDAO;
 import com.yhy.dataservices.dao.UserDAO;
 import com.yhy.dataservices.dto.cityAirQuality.AqiAvgDTO;
@@ -37,7 +38,8 @@ class DataservicesApplicationTests {
     @Autowired
     CityAirQualityDAO cityAirQualityDAO;
 
-
+    @Autowired
+    HengYangAirQualityDAO cityAirQuality2018DAO;
     @Test
     public void userLoginTest(){
         String userName="yuhanyi";
@@ -113,5 +115,14 @@ class DataservicesApplicationTests {
             System.out.println(pm10DTO);
         }
    }
+
+    @Test
+    public void getAqi2018(){
+        List<Integer> resultList;
+        resultList=cityAirQuality2018DAO.getAqi2018("衡阳");
+        for(Integer i:resultList){
+            System.out.println(i);
+        }
+    }
 
 }

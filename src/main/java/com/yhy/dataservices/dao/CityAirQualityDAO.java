@@ -13,7 +13,7 @@ import java.util.List;
 public interface CityAirQualityDAO {
 
     /**
-     * 用于获取城市列表的空气质量数据
+     * 用于获取2019年城市列表的空气质量数据
      * @param cityNames
      * @return
      */
@@ -63,4 +63,6 @@ public interface CityAirQualityDAO {
      * @return
      */
     List<Pm10AvgDTO> getPm10Avg();
+
+
 }
