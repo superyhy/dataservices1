@@ -48,4 +48,24 @@ public class HengYangAirQualityController<Lis> {
         return hengYangAirQualityService.getAirQualityFrom2019();
     }
 
+    /**
+     * 2019衡阳市aqi，PM25，PM10数据
+     * @return
+     */
+    @GetMapping("/getAirQualityByHengYang")
+    @ResponseBody
+    public Map<String,Object> getAirQualityByHengYang(){
+        return hengYangAirQualityService.getAirQualityByHengYang();
+    }
+
+
+    /**
+     * 2018衡阳市aqi，PM25数据
+     * @return
+     */
+    @GetMapping("/getPm25AndAqiFrom2018")
+    @ResponseBody
+    public Map<String,Object> getPm25AndAqiFrom2018(){
+        return hengYangAirQualityService.getPm10AndPm25From2018();
+    }
 }

@@ -125,4 +125,13 @@ class DataservicesApplicationTests {
         }
     }
 
+    @Test
+    public void getPm25From2018(){
+        List<Integer> resultList;
+        resultList=cityAirQuality2018DAO.getPm25From2018("衡阳");
+        for(Integer i:resultList){
+            System.out.println(i);
+        }
+    }
+
 }

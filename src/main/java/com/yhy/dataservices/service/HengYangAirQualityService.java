@@ -24,4 +24,15 @@ public interface HengYangAirQualityService {
      * @return
      */
     List<EchartsDTO> getAirQualityFrom2019();
+
+    /**
+     *2019年衡阳市AQI，PM2.5,PM10走势图
+     */
+    Map<String,Object>  getAirQualityByHengYang();
+
+    /**
+     * 2018年衡阳市AQI与PM2.5关系图
+     * @return
+     */
+    Map<String,Object> getPm10AndPm25From2018();
 }

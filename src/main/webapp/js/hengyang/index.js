@@ -332,16 +332,15 @@ $(function () {
                 trigger: 'axis'
             },
             legend: {
-                x: 300,
                 top: '7%',
                 textStyle: {
-                    color: '#ffd285',
+                    color: '#fff',
                 },
-                data: ['2016年', '2017年', '2018年']
+                data: ['AQI', 'PM2.5', 'PM10']
             },
             grid: {
                 left: '1%',
-                right: '28%',
+                right: '10%',
                 top: '16%',
                 bottom: '6%',
                 containLabel: true
@@ -368,7 +367,7 @@ $(function () {
                     }
                 },
                 boundaryGap: false,
-                data: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12']
+                data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月']
             },
             yAxis: {
                 "axisLine": {
@@ -393,128 +392,52 @@ $(function () {
                 type: 'value'
             },
             series: [{
-                name: '',
+                name: 'AQI',
                 smooth: true,
                 type: 'line',
                 symbolSize: 9,
                   symbol: 'circle',
-                data: [90, 50, 39, 50, 120, 82, 80, 89, 92, 80, 102, 77]
+                data: []
             }, {
-                name: '',
+                name: 'PM2.5',
                 smooth: true,
                 type: 'line',
                 symbolSize: 9,
                   symbol: 'circle',
-                data: [70, 50, 50, 87, 90, 80, 70, 77, 86, 94, 96, 99]
+                data: []
             }, {
-                name: '',
+                name: 'PM10',
                 smooth: true,
                 type: 'line',
                 symbolSize: 9,
                   symbol: 'circle',
-                data: [100, 112, 80, 132, 60, 70, 90, 131, 121, 102, 95, 105 ]
-            }, 
-            {
-                type: 'pie',
-                center: ['83%', '33%'],
-                radius: ['30%', '35%'],
-                label: {
-                    normal: {
-                        position: 'center'
-                    }
-                },
-                data: [{
-                    value: 335,
-                    name: '销售分析',
-                    itemStyle: {
-                        normal: {
-                            color: '#FF7E45'
-                        }
-                    },
-                    label: {
-                        normal: {
-                            formatter: '{d} %',
-                            textStyle: {
-                                color: '#ffd285',
-                                fontSize: 14
-        
-                            }
-                        }
-                    }
-                }, {
-                    value: 180,
-                    name: '占位',
-                    tooltip: {
-                        show: false
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: '#fff'
-                        }
-                    },
-                    label: {
-                        normal: {
-                            textStyle: {
-                                color: '#ffd285',
-                            },
-                            formatter: '\n销售渠道'
-                        }
-                    }
-                }]
-            },
-        
-        
-            {
-                type: 'pie',
-                center: ['83%', '72%'],
-                radius: ['30%', '35%'],
-                label: {
-                    normal: {
-                        position: 'center'
-                    }
-                },
-                data: [{
-                    value: 435,
-                    name: '销售分析',
-                    itemStyle: {
-                        normal: {
-                            color: '#4834CB'
-                        }
-                    },
-                    label: {
-                        normal: {
-                            formatter: '{d} %',
-                            textStyle: {
-                                color: '#fff',
-                                fontSize: 14
-        
-                            }
-                        }
-                    }
-                }, {
-                    value: 100,
-                    name: '占位',
-                    tooltip: {
-                        show: false
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: '#fff'
-        
-        
-                        }
-                    },
-                    label: {
-                        normal: {
-                            textStyle: {
-                                color: '#fff',
-                            },
-                            formatter: '\n销售方向'
-                        }
-                    }
-                }]
+                data: []
             }]
         }
+
+        //调用 /getAirQualityByHengYang
+
+        $.ajax({
+            type : "get",
+            url : "/getAirQualityByHengYang",
+            dataType : "json",
+            success : function(result) {
+                myChart.setOption({
+                    series: [{
+                        // 根据名字对应到相应的系列
+                        name: 'AQI',
+                        data: result.aqiList
+                    },{
+                        name: 'PM2.5',
+                        data: result.pm25List
+                    },{
+                        name: 'PM10',
+                        data: result.pm10List
+                    }]
+                });
+            }
+
+        });
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
@@ -563,7 +486,7 @@ $(function () {
                 axisTick: {
                     show: false,
                 },
-                data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月' ],
+                data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月','9月','10月','11月','12月' ],
             }],
             yAxis: [{
                 type: 'value',
@@ -636,7 +559,7 @@ $(function () {
                         shadowBlur: 20 //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
                     }
                 },
-                data: [393, 438, 485, 631, 689, 824, 987]
+                data: []
             }, {
                 name: 'PM2.5',
                 type: 'bar',
@@ -672,9 +595,30 @@ $(function () {
                         }
                     }
                 },
-                data: [200, 382, 102, 267, 186, 315, 316]
+                data: []
             }]
         };
+
+        //调用 /getAirQualityByHengYang
+
+        $.ajax({
+            type : "get",
+            url : "/getPm25AndAqiFrom2018",
+            dataType : "json",
+            success : function(result) {
+                myChart.setOption({
+                    series: [{
+                        // 根据名字对应到相应的系列
+                        name: 'AQI',
+                        data: result.aqiList
+                    },{
+                        name: 'PM2.5',
+                        data: result.pm25List
+                    }]
+                });
+            }
+
+        });
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);

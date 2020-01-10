@@ -82,4 +82,66 @@ public class HengYangAirQualityServiceImpl implements HengYangAirQualityService 
         resultList.add(new EchartsDTO("中度污染",cityAirQualityDAO.getAirQualityMiddle(cityName)));
         return resultList;
     }
+
+    @Override
+    public Map<String, Object> getAirQualityByHengYang() {
+
+        Map<String,Object> resultMap=new HashMap<>();
+
+        //查询衡阳市数据
+        List<String> cityNames=new ArrayList<>();
+        cityNames.add("衡阳");
+        List<CityAirQuality> targetList;
+        try{
+            targetList=cityAirQualityDAO.getCityAirQualityByCityName(cityNames);
+        } catch (Exception e) {
+            log.error("{} 查询衡阳市数据失败 ",getClass(),e);
+            throw e;
+        }
+
+        //筛选aqi，pm2.5,pm10数据
+        List<Integer> aqiList=targetList.stream().map(i->i.getAqi()).collect(Collectors.toList());
+
+        List<Integer> pm25List=targetList.stream().map(i->i.getPm25()).collect(Collectors.toList());
+
+        List<Integer> pm10List=targetList.stream().map(i->i.getPm10()).collect(Collectors.toList());
+
+
+        //返回结果
+        resultMap.put("aqiList",aqiList);
+        resultMap.put("pm25List",pm25List);
+        resultMap.put("pm10List",pm10List);
+
+        return resultMap;
+
+    }
+
+    @Override
+    public Map<String, Object> getPm10AndPm25From2018() {
+
+        Map<String,Object> resultMap=new HashMap<>();
+
+        //获取pm2.5数据
+        List<Integer> pm25List;
+        try{
+            pm25List=cityAirQuality2018DAO.getPm25From2018("衡阳");
+        } catch (Exception e) {
+            log.error("{} 获取2018年pm2.5数据失败 ",getClass(),e);
+            throw e;
+        }
+
+        //获取aqi数据
+        List<Integer> aqiList;
+        try{
+            aqiList=cityAirQuality2018DAO.getAqi2018("衡阳");
+        } catch (Exception e) {
+            log.error("{} 获取2018年aqi数据失败 ",getClass(),e);
+            throw e;
+        }
+
+        resultMap.put("pm25List",pm25List);
+        resultMap.put("aqiList",aqiList);
+
+        return resultMap;
+    }
 }

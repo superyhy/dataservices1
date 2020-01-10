@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 06/01/2020 16:05:36
+ Date: 10/01/2020 09:54:33
 */
 
 SET NAMES utf8mb4;
@@ -68,7 +68,7 @@ CREATE TABLE `city_air_quality`  (
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 62 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of city_air_quality
@@ -133,6 +133,38 @@ INSERT INTO `city_air_quality` VALUES (58, '郴州', 9, 87, 34, 63, '2020-01-06 
 INSERT INTO `city_air_quality` VALUES (59, '郴州', 10, 63, 35, 52, '2020-01-06 14:15:02', NULL);
 INSERT INTO `city_air_quality` VALUES (60, '郴州', 11, 67, 42, 67, '2020-01-06 14:15:19', NULL);
 INSERT INTO `city_air_quality` VALUES (61, '郴州', 12, 65, 45, 63, '2020-01-06 14:15:35', NULL);
+
+-- ----------------------------
+-- Table structure for city_air_quality_2018
+-- ----------------------------
+DROP TABLE IF EXISTS `city_air_quality_2018`;
+CREATE TABLE `city_air_quality_2018`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '城市名称',
+  `month` int(20) NULL DEFAULT NULL COMMENT '2019年月份',
+  `aqi` int(20) NULL DEFAULT NULL COMMENT '空气质量指数',
+  `pm25` int(30) NULL DEFAULT NULL COMMENT '细颗粒物PM2.5指数',
+  `pm10` int(255) NULL DEFAULT NULL COMMENT 'PM10指数',
+  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `update_time` datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 74 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of city_air_quality_2018
+-- ----------------------------
+INSERT INTO `city_air_quality_2018` VALUES (1, '衡阳', 1, 92, 68, 83, '2020-01-09 10:00:18', '2020-01-09 10:06:46');
+INSERT INTO `city_air_quality_2018` VALUES (63, '衡阳', 2, 98, 73, 99, '2020-01-09 10:07:14', NULL);
+INSERT INTO `city_air_quality_2018` VALUES (64, '衡阳', 3, 62, 44, 68, '2020-01-09 10:08:20', NULL);
+INSERT INTO `city_air_quality_2018` VALUES (65, '衡阳', 4, 54, 33, 65, '2020-01-09 10:08:29', '2020-01-09 10:08:50');
+INSERT INTO `city_air_quality_2018` VALUES (66, '衡阳', 5, 47, 26, 48, '2020-01-09 10:08:38', '2020-01-09 10:09:10');
+INSERT INTO `city_air_quality_2018` VALUES (67, '衡阳', 6, 48, 22, 39, '2020-01-09 10:10:03', NULL);
+INSERT INTO `city_air_quality_2018` VALUES (68, '衡阳', 7, 45, 18, 35, '2020-01-09 10:10:26', NULL);
+INSERT INTO `city_air_quality_2018` VALUES (69, '衡阳', 8, 54, 22, 40, '2020-01-09 10:10:46', NULL);
+INSERT INTO `city_air_quality_2018` VALUES (70, '衡阳', 9, 58, 31, 53, '2020-01-09 10:11:30', NULL);
+INSERT INTO `city_air_quality_2018` VALUES (71, '衡阳', 10, 67, 40, 63, '2020-01-09 10:11:58', NULL);
+INSERT INTO `city_air_quality_2018` VALUES (72, '衡阳', 11, 62, 43, 60, '2020-01-09 10:12:21', NULL);
+INSERT INTO `city_air_quality_2018` VALUES (73, '衡阳', 12, 87, 62, 75, '2020-01-09 10:12:44', NULL);
 
 -- ----------------------------
 -- Table structure for city_pm25

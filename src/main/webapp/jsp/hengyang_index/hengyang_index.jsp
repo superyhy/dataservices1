@@ -57,13 +57,13 @@
             </div>
             <div class="t_box">
                 <header class="t_title">
-                    <span>年度销售额走势图</span>
+                    <span>2019衡阳市AQI，PM2.5及PM10走势比较</span>
                 </header>
                 <div id="chart_3" class="echart" style="width: 100%; height: 3rem;"></div>
             </div>
             <div class="t_box">
                 <header class="t_title">
-                    <span>2019年衡阳市AQI与PM2.5关系图</span>
+                    <span>2018年衡阳市AQI与PM2.5关系图</span>
                 </header>
                 <div id="chart_4" class="echart" style="width: 100%; height: 3rem;"></div>
             </div>

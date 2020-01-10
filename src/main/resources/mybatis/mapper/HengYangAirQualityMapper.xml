@@ -14,6 +14,17 @@
         month
     </select>
 
+    <select id="getPm25From2018" resultType="java.lang.Integer">
+        select
+        pm25
+        from
+        city_air_quality_2018
+        where
+        city_name=#{cityName}
+        order by
+        month
+    </select>
+
     <select id="getAirQualitySuperior" resultType="java.lang.Integer">
         select count(*) from city_air_quality_2018 where (aqi between 0 and 50) and city_name=#{cityName}
     </select>
